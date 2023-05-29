@@ -8,9 +8,9 @@ interface IPageTitles {
 
 const pageTitles: IPageTitles = {
   [routesConfig.HOME]: "Bachelors Home",
+  [routesConfig.CONTACTUS]: "Contact Us",
   [routesConfig.LOGIN]: "Log In",
   [routesConfig.REGISTRATION]: "Registration",
-  [routesConfig.CONTACTUS]: "Contact Us",
 };
 
 const useTitles = () => {
