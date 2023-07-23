@@ -56,7 +56,12 @@ export default function NavBar(props: Props) {
       <AppBar
         component="nav"
         color="transparent"
-        sx={{ boxShadow: 0, backdropFilter: "blur(20px)", bgcolor: "#e6eff7" }}
+        sx={{
+          boxShadow: 0,
+          backdropFilter: "blur(20px)",
+          bgcolor: "#e6eff7",
+          height: 64,
+        }}
       >
         <Toolbar>
           <IconButton

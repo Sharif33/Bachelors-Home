@@ -5,10 +5,11 @@ import useTitles from "../../hooks/use-titles.hook";
 const Home = () => {
   useTitles();
   return (
-    <div>
+    <>
       <NavBar />
+
       <Outlet />
-    </div>
+    </>
   );
 };
 
