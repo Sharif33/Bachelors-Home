@@ -51,7 +51,7 @@ const SidebarComponent = () => {
 
   const [divId, setDivId] = React.useState<string>(DIVISIONS[0].id);
   const districts = DISTRICTS.filter((item) => item.division_id === divId);
-  const [distId, setDistId] = React.useState<string>("");
+  const [distId, setDistId] = React.useState<string>(districts[0].id);
   const upazillas = UPAZILLAS.filter((item) => item.district_id === distId);
 
   return (
