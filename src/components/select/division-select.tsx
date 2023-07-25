@@ -1,62 +1,45 @@
-import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { Autocomplete, TextField } from "@mui/material";
 import * as React from "react";
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 8;
-const MenuProps = {
-  PaperProps: {
-    style: {
-      maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250,
-    },
-  },
-};
+import { Dispatch, SetStateAction } from "react";
+import { Division } from "../../features/filters/filter-elements";
 
 export default function DivisionSelect({
   data,
-  handleClick,
+  setDivId,
 }: {
-  data: {
-    id: string;
-    name: string;
-    bn_name: string;
-    lat: string;
-    lon: string;
-    url?: string;
-  }[];
-  handleClick: (id: string) => void;
+  data: Division[];
+  setDivId: Dispatch<SetStateAction<string>>;
 }) {
-  const [value, setValue] = React.useState("");
+  const defaultValue = data.length > 0 ? data[0]?.name : null;
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setValue(event.target.value);
-  };
+  const [value, setValue] = React.useState<string | null>(defaultValue);
+  const [inputValue, setInputValue] = React.useState("");
+
+  React.useEffect(() => {
+    if (!value) return setDivId(data[0].id);
+    if (value) {
+      const divs = data.filter((item) => item.name === value);
+      setDivId(divs[0]?.id);
+    }
+  }, [value]);
 
   return (
     <div>
-      <Select
-        value={value}
-        onChange={handleChange}
-        sx={{ width: 250 }}
+      <Autocomplete
         size="small"
-        displayEmpty
-        inputProps={{ "aria-label": "Without label" }}
-        MenuProps={MenuProps}
-      >
-        <MenuItem value="" disabled>
-          None
-        </MenuItem>
-        {data.map((item) => (
-          <MenuItem
-            onClick={() => handleClick(item.id)}
-            key={item.name}
-            value={item.name}
-          >
-            {item.name}
-          </MenuItem>
-        ))}
-      </Select>
+        value={value}
+        onChange={(_event, newValue) => {
+          setValue(newValue);
+        }}
+        inputValue={inputValue}
+        onInputChange={(_event, newInputValue) => {
+          setInputValue(newInputValue);
+        }}
+        id="controllable-states-demo"
+        options={data.map((item) => item.name)}
+        sx={{ width: 250 }}
+        renderInput={(params) => <TextField {...params} />}
+      />
     </div>
   );
 }

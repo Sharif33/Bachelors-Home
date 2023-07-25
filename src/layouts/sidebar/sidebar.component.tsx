@@ -12,13 +12,10 @@ import CustomCheckbox from "../../components/checkbox/checkbox";
 import CustomSelect from "../../components/select/custom-select";
 import DistrictSelect from "../../components/select/district-select";
 import DivisionSelect from "../../components/select/division-select";
+import UpazillaSelect from "../../components/select/upazilla-select";
 import RangeSlider from "../../components/slider/range-slider";
-import {
-  DISTRICTS,
-  DIVISIONS,
-  District,
-  Division,
-} from "../../features/filters/filter-elements";
+import { DISTRICTS, DIVISIONS } from "../../features/filters/filter-elements";
+import { UPAZILLAS } from "../../features/filters/upazillas";
 
 const SidebarComponent = () => {
   const initialRangeValues = [1000, 30000];
@@ -52,37 +49,10 @@ const SidebarComponent = () => {
   const currentMonth = currentDate.getMonth();
   const currentMonthName = months[currentMonth];
 
-  //create an array which contains all the DIVISIONS id matching with the selected districts division_id
-
+  const [divId, setDivId] = React.useState<string>(DIVISIONS[0].id);
+  const districts = DISTRICTS.filter((item) => item.division_id === divId);
   const [distId, setDistId] = React.useState<string>("");
-  const [divId, setDivId] = React.useState<string>("");
-
-  const handleDistChange = (id: string) => {
-    setDistId(id);
-  };
-
-  const handleDivChange = (id: string) => {
-    setDivId(id);
-  };
-
-  const [districts, setDistricts] = React.useState<District[]>([]);
-  const [divisions, setDivisions] = React.useState<Division[]>([]);
-
-  React.useEffect(() => {
-    if (!divId) return setDistricts(DISTRICTS);
-    if (divId) {
-      const areas = DISTRICTS.filter((item) => item.division_id === divId);
-      setDistricts(areas);
-    }
-  }, [divId]);
-
-  React.useEffect(() => {
-    if (!distId) return setDivisions(DIVISIONS);
-    if (distId) {
-      const divs = divisions.filter((item) => item.id === distId);
-      setDivisions(divs);
-    }
-  }, [distId]);
+  const upazillas = UPAZILLAS.filter((item) => item.district_id === distId);
 
   return (
     <div>
@@ -160,14 +130,25 @@ const SidebarComponent = () => {
         <List>
           <ListItemText primary="Select Division" />
           <ListItem disablePadding>
-            <DivisionSelect data={divisions} handleClick={handleDivChange} />
+            <DivisionSelect data={DIVISIONS} setDivId={setDivId} />
           </ListItem>
         </List>
         <Divider />
         <List>
           <ListItemText primary="Select District" />
           <ListItem disablePadding>
-            <DistrictSelect data={districts} handleClick={handleDistChange} />
+            <DistrictSelect
+              data={districts}
+              divId={divId}
+              setDistId={setDistId}
+            />
+          </ListItem>
+        </List>
+        <Divider />
+        <List>
+          <ListItemText primary="Select Upazilla" />
+          <ListItem disablePadding>
+            <UpazillaSelect data={upazillas} distId={distId} />
           </ListItem>
         </List>
         {/*   <List>

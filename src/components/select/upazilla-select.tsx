@@ -1,33 +1,24 @@
 import { Autocomplete, TextField } from "@mui/material";
 import * as React from "react";
-import { District } from "../../features/filters/filter-elements";
+import { IUpazilla } from "../../features/filters/upazillas";
 
-export default function DistrictSelect({
+export default function UpazillaSelect({
   data,
-  setDistId,
-  divId,
+  distId,
 }: {
-  data: District[];
-  divId: string;
-  setDistId: React.Dispatch<React.SetStateAction<string>>;
+  data: IUpazilla[];
+  distId: string;
 }) {
   const [value, setValue] = React.useState<string | null>("");
   const [inputValue, setInputValue] = React.useState("");
 
+  //set default value for upazilla by district id
   React.useEffect(() => {
-    if (divId) {
-      const dists = data.filter((item) => item.division_id === divId);
-      setValue(dists[0]?.name);
+    if (distId) {
+      const upazillas = data.filter((item) => item.district_id === distId);
+      setValue(upazillas[0]?.name);
     }
-  }, [divId]);
-
-  React.useEffect(() => {
-    if (!value) return setDistId(data[0]?.id);
-    if (value) {
-      const dists = data.filter((item) => item.name === value);
-      setDistId(dists[0]?.id);
-    }
-  }, [value]);
+  }, [distId]);
 
   return (
     <div>
