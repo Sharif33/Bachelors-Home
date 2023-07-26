@@ -26,7 +26,7 @@ const RenderHouses = ({ house }: Props) => {
           />
         )}
         <Stack direction="column" spacing={1} p={2}>
-          <Typography variant="h6">
+          <Typography variant="h6" color="#00A76F">
             {house.houseType} available at {house?.location?.upazilla}
           </Typography>
           <Typography variant="subtitle1">{house.location.address}</Typography>
