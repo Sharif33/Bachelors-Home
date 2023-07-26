@@ -76,7 +76,11 @@ function createRandomHouses(): IHouses {
 
   return {
     _id: faker.string.uuid(),
-    images: [faker.image.url(), faker.image.url(), faker.image.url()],
+    images: [
+      faker.image.urlLoremFlickr({ category: "house" }),
+      faker.image.urlLoremFlickr({ category: "washroom" }),
+      faker.image.urlLoremFlickr({ category: "kitchen" }),
+    ],
     houseType: getRandomElement([
       "Room",
       "Flat",
@@ -93,15 +97,15 @@ function createRandomHouses(): IHouses {
       })
       .toDateString(),
     houseSize: getRandomNumber({ min: 500, max: 2000 }),
-    houseRent: getRandomNumber({ min: 5000, max: 20000 }),
+    houseRent: getRandomNumber({ min: 1500, max: 20000 }),
     rentNegotiable: faker.datatype.boolean(),
     serviceCharge: getRandomNumber({ min: 500, max: 2000 }),
-    bedRoom: getRandomNumber({ min: 1, max: 5 }),
-    bathRoom: getRandomNumber({ min: 1, max: 3 }),
-    kitchen: getRandomNumber({ min: 1, max: 1 }),
-    balcony: getRandomNumber({ min: 1, max: 2 }),
-    floor: getRandomNumber({ min: 1, max: 10 }),
-    floorType: getRandomElement(["Tiles", "Marble", "Wooden"]),
+    bedRoom: faker.number.int({ min: 1, max: 3 }),
+    bathRoom: faker.number.int({ min: 1, max: 3 }),
+    kitchen: faker.number.int({ min: 1, max: 2 }),
+    balcony: faker.number.int({ min: 1, max: 5 }),
+    floor: faker.number.int({ min: 1, max: 10 }),
+    floorType: getRandomElement(["Tiles", "Marble", "Wooden", "Cement"]),
     diningSpace: getRandomNumber({ min: 1, max: 1 }),
     attachedWashroom: faker.datatype.boolean(),
     commomWashroom: faker.datatype.boolean(),
@@ -120,7 +124,7 @@ function createRandomHouses(): IHouses {
     contactEmail: faker.internet.email(),
     contactAddress: faker.location.streetAddress(),
     contactName: faker.person.fullName(),
-    preferredGender: faker.person.gender(),
+    preferredGender: getRandomElement(["Boys", "Girls"]),
     location: {
       division: randomDivision.name,
       district: randomDistrict.name,

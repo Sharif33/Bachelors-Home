@@ -56,7 +56,9 @@ const SidebarComponent = () => {
 
   return (
     <div>
-      <Box sx={{ display: "flex", justifyContent: "space-between", px: 3 }}>
+      <Box
+        sx={{ display: "flex", justifyContent: "space-between", px: 3, pt: 1 }}
+      >
         <Typography variant="h6">Filters</Typography>
         <Button variant="text" sx={{ textTransform: "capitalize" }}>
           Reset
