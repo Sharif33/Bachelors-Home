@@ -11,7 +11,7 @@ export default function DistrictSelect({
   divId: string;
   setDistId: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const [value, setValue] = React.useState<string | null>("");
+  const [value, setValue] = React.useState<string | null>(data[0]?.name);
   const [inputValue, setInputValue] = React.useState("");
 
   React.useEffect(() => {

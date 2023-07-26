@@ -2,10 +2,11 @@ import { faker } from "@faker-js/faker";
 import { DISTRICTS, DIVISIONS } from "../filters/filter-elements";
 import { UPAZILLAS } from "../filters/upazillas";
 
-interface IHouses {
+export interface IHouses {
   _id: string;
   images: string[];
   houseType: string;
+  availableFrom: string;
   houseSize: number | string;
   houseRent: number | string;
   rentNegotiable: boolean;
@@ -85,6 +86,12 @@ function createRandomHouses(): IHouses {
       "Mess",
       "Shared Room",
     ]),
+    availableFrom: faker.date
+      .between({
+        from: new Date(),
+        to: new Date(new Date().setMonth(new Date().getMonth() + 2)),
+      })
+      .toDateString(),
     houseSize: getRandomNumber({ min: 500, max: 2000 }),
     houseRent: getRandomNumber({ min: 5000, max: 20000 }),
     rentNegotiable: faker.datatype.boolean(),
@@ -111,7 +118,7 @@ function createRandomHouses(): IHouses {
     description: faker.lorem.paragraph(),
     contactNo: createRandomPhoneNumber(),
     contactEmail: faker.internet.email(),
-    contactAddress: faker.address.streetAddress(),
+    contactAddress: faker.location.streetAddress(),
     contactName: faker.person.fullName(),
     preferredGender: faker.person.gender(),
     location: {

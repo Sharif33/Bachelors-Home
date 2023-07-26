@@ -9,7 +9,7 @@ export default function UpazillaSelect({
   data: IUpazilla[];
   distId: string;
 }) {
-  const [value, setValue] = React.useState<string | null>("");
+  const [value, setValue] = React.useState<string | null>(data[0]?.name);
   const [inputValue, setInputValue] = React.useState("");
 
   //set default value for upazilla by district id

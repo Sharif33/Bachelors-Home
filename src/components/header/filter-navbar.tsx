@@ -29,7 +29,7 @@ const FilterNavbar = ({ width }: { width?: number }) => {
       position="fixed"
       sx={{
         zIndex: (theme) => theme.zIndex.drawer + 1,
-        bgcolor: "white",
+        bgcolor: "transparent",
         backdropFilter: "blur(20px)",
         borderBottom: "dashed 1px #e0e0e0",
         boxShadow: "rgba(0, 0, 0, 0.05) 0px 3px 10px",

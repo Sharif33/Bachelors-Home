@@ -7,6 +7,7 @@ const routesConfig = {
   ABOUTUS: "/about_us",
   // private route
   DISCUSION: "/discusion",
+  DISCUSION_ID: ":id",
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",
   // private route
