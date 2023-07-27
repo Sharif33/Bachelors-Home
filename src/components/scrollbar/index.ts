@@ -1,3 +1,3 @@
 /* eslint-disable no-restricted-exports */
-export { default } from "./scrollbar.tsx";
-export * from "./types.ts";
+export { default } from "./scrollbar";
+export * from "./types";
