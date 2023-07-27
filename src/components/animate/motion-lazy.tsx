@@ -2,7 +2,7 @@ import { LazyMotion, m } from "framer-motion";
 
 // ----------------------------------------------------------------------
 
-const loadFeatures = () => import("./features.ts").then((res) => res.default);
+const loadFeatures = () => import("./features").then((res) => res.default);
 
 type Props = {
   children: React.ReactNode;
