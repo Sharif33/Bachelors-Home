@@ -1,0 +1,9 @@
+/* styles.css or any global styles file */
+@keyframes rotateBackground {
+  0% {
+    background-position: top right, left bottom;
+  }
+  100% {
+    background-position: top left, right bottom;
+  }
+}

@@ -55,7 +55,17 @@ const SidebarComponent = () => {
   const upazillas = UPAZILLAS.filter((item) => item.district_id === distId);
 
   return (
-    <div>
+    <Box
+      sx={{
+        blur: 20,
+        opacity: 0.9,
+        backgroundImage:
+          "url(https://minimals.cc/assets/cyan-blur.png), url(https://minimals.cc/assets/red-blur.png)",
+        backgroundRepeat: "no-repeat, no-repeat",
+        backgroundPosition: "top right, left bottom",
+        backgroundSize: "50%, 50%",
+      }}
+    >
       <Box
         sx={{ display: "flex", justifyContent: "space-between", px: 3, pt: 1 }}
       >
@@ -164,7 +174,7 @@ const SidebarComponent = () => {
           ))}
         </List> */}
       </Box>
-    </div>
+    </Box>
   );
 };
 

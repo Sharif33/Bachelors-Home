@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 // @mui
 import { autocompleteClasses } from "@mui/material/Autocomplete";
 import { checkboxClasses } from "@mui/material/Checkbox";
@@ -25,6 +24,8 @@ export const paper = ({
       color: bgcolor,
     }),
   }),
+  backgroundImage:
+    "url(https://minimals.cc/assets/cyan-blur.png), url(https://minimals.cc/assets/red-blur.png)",
   backgroundRepeat: "no-repeat, no-repeat",
   backgroundPosition: "top right, left bottom",
   backgroundSize: "50%, 50%",

@@ -1,6 +1,7 @@
 import { CssBaseline } from "@mui/material";
 
 import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import { Outlet } from "react-router-dom";
 import FilterNavbar from "../../components/header/filter-navbar";
@@ -18,12 +19,12 @@ export default function FilterSidebar() {
     >
       <CssBaseline />
       <FilterNavbar width={drawerWidth} />
-      <Box
+      {/* <Box
         sx={{
           minWidth: `${drawerWidth}px`,
           display: { xs: "none", md: "block" },
         }}
-      />
+      /> */}
       <Box
         component="main"
         sx={{
@@ -33,14 +34,16 @@ export default function FilterSidebar() {
         }}
       >
         <Toolbar />
-        <Outlet />
+        <Container>
+          <Outlet />
+        </Container>
       </Box>
-      <Box
+      {/* <Box
         sx={{
           minWidth: `${drawerWidth}px`,
           display: { xs: "none", md: "block" },
         }}
-      />
+      /> */}
     </Box>
   );
 }

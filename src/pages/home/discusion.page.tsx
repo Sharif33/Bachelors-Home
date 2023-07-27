@@ -30,7 +30,7 @@ const Discusion = (props: Props) => {
         open={mobileOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
-          keepMounted: true, // Better open performance on mobile.
+          keepMounted: true,
         }}
         sx={{
           width: drawerWidth,
@@ -56,15 +56,18 @@ const Discusion = (props: Props) => {
           display: { xs: "none", md: "block" },
           [`& .MuiDrawer-paper`]: {
             width: drawerWidth,
-            left: drawerWidth,
+            // left: drawerWidth,
+            top: 60,
+            // bottom: 60,
             boxSizing: "border-box",
             borderRight: "dashed 1px #e0e0e0",
             boxShadow: "rgba(0, 0, 0, 0.05) 0px 3px 10px",
           },
         }}
       >
-        <Toolbar />
+        {/* <Toolbar /> */}
         <SidebarComponent />
+        <Toolbar />
       </Drawer>
       <Box
         sx={{
@@ -86,6 +89,7 @@ const Discusion = (props: Props) => {
             position: "fixed",
             top: 60,
             right: 0,
+            zIndex: 100,
           }}
         >
           Filter

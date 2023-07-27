@@ -1,5 +1,6 @@
 import { AppBar, Box, Toolbar, Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
+import AccountMenu from "./account-menu";
 const navItems = [
   {
     title: "Home",
@@ -66,6 +67,7 @@ const FilterNavbar = ({ width }: { width?: number }) => {
             </Box>
           ))}
         </Box>
+        <AccountMenu />
       </Toolbar>
     </AppBar>
   );

@@ -76,6 +76,9 @@ const customTheme = createTheme({
     warning: WARNING,
     error: ERROR,
   },
+  typography: {
+    fontFamily: '"Public Sans", sans-serif',
+  },
 });
 
 export default customTheme;

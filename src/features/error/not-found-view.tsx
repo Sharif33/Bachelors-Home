@@ -1,10 +1,8 @@
 import { m } from "framer-motion";
 // @mui
-/* import PageNotFoundIllustration from "@/assets/illustrations/page-not-found-illustration.tsx";
-import MotionContainer from "@/components/animate/motion-container.tsx";
-import { varBounce } from "@/components/animate/variants/bounce.ts"; */
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import { useNavigate, useRouteError } from "react-router-dom";
 import PageNotFoundIllustration from "../../assets/illustrations/page-not-found-illustration";
 import MotionContainer from "../../components/animate/motion-container";
 import { varBounce } from "../../components/animate/variants/bounce";
@@ -12,11 +10,13 @@ import { varBounce } from "../../components/animate/variants/bounce";
 // ----------------------------------------------------------------------
 
 export default function NotFoundView() {
+  const error: any = useRouteError();
+  const navigate = useNavigate();
   return (
     <MotionContainer>
       <m.div variants={varBounce().in}>
         <Typography variant="h3" paragraph>
-          Sorry, Page Not Found!
+          Sorry, Page {error.statusText || error.message}!
         </Typography>
       </m.div>
 
@@ -35,10 +35,11 @@ export default function NotFoundView() {
           }}
         />
       </m.div>
-
-      <Button size="large" variant="contained">
-        Go to Home
-      </Button>
+      <m.div variants={varBounce().in}>
+        <Button onClick={() => navigate("/")} size="large" variant="contained">
+          Go to Home
+        </Button>
+      </m.div>
     </MotionContainer>
   );
 }

@@ -10,6 +10,7 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { IHouses } from "../faker/fake-post";
+import "./styles.css";
 
 interface Props {
   house: IHouses;
@@ -39,8 +40,17 @@ const RenderHouses = ({ house }: Props) => {
         mb: 3,
         cursor: "pointer",
         border: "dashed 1px #e0e0e0",
-        boxShadow: "rgba(0, 0, 0, 0.05) 0px 3px 10px",
+        // boxShadow: "rgba(0, 0, 0, 0.05) 0px 3px 10px",
+        boxShadow: "none",
         "&:hover": { border: "dashed 1px #00A76F" },
+        blur: 20,
+        opacity: 0.9,
+        backgroundImage:
+          "url(https://minimals.cc/assets/red-blur.png),url(https://minimals.cc/assets/cyan-blur.png)",
+        animation: "rotateBackground 20s linear infinite",
+        backgroundRepeat: "no-repeat, no-repeat",
+        backgroundPosition: "top right, left bottom",
+        backgroundSize: "50%, 50%",
       }}
     >
       <Box

@@ -16,7 +16,7 @@ function PageNotFoundIllustration({ ...other }: BoxProps) {
 
   const PRIMARY_DARK = theme.palette.primary.dark;
 
-  const PRIMARY_DARKER = theme.palette.primary.dark;
+  const PRIMARY_DARKER = theme.palette.primary.darker;
 
   return (
     <Box
