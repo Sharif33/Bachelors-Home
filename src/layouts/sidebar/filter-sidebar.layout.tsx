@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import { Outlet } from "react-router-dom";
-import FilterNavbar from "../../components/header/filter-navbar";
+import FilterNavbar from "../../features/header/filter-navbar";
 const drawerWidth = 300;
 
 export default function FilterSidebar() {
@@ -18,7 +18,7 @@ export default function FilterSidebar() {
       }}
     >
       <CssBaseline />
-      <FilterNavbar width={drawerWidth} />
+      <FilterNavbar />
       {/* <Box
         sx={{
           minWidth: `${drawerWidth}px`,

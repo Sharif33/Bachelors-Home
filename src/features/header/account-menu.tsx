@@ -10,7 +10,7 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { m } from "framer-motion";
 import * as React from "react";
-import { varHover } from "../animate/variants copy";
+import { varHover } from "../../components/animate/variants copy";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
