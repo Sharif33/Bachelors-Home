@@ -39,7 +39,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({
 
   React.useEffect(() => {
     if (loop) {
-      const interval = setInterval(handleNext, 5000); // Adjust the interval time as needed
+      const interval = setInterval(handleNext, 5000);
       return () => clearInterval(interval);
     }
   }, [activeIndex, loop]);
@@ -47,128 +47,124 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({
   const theme = useTheme();
 
   return (
-    <Box sx={{ position: "relative" }}>
-      {/* <Slider
-        value={activeIndex}
-        onChange={(event, newValue) => setActiveIndex(newValue as number)}
-        step={1}
-        marks
-        min={0}
-        max={items.length - 1}
-        sx={{ display: "none" }}
-      /> */}
-      {items.map((item, index) => (
-        <Box
-          key={index}
-          sx={{
-            display: index === activeIndex ? "block" : "none",
-            width: "100%",
-          }}
-        >
-          {item.image && (
-            <Box
-              component="img"
-              src={item.image}
-              alt={`Slide ${index}`}
+    <React.Fragment>
+      <Box sx={{ position: "relative" }}>
+        {items.map((item, index) => (
+          <Box
+            key={index}
+            sx={{
+              display: index === activeIndex ? "block" : "none",
+              width: "100%",
+            }}
+          >
+            {item.image && (
+              <Box
+                component="img"
+                src={item.image}
+                alt={`Slide ${index}`}
+                sx={{
+                  width: 1,
+                  height: { md: 500, xs: 150 },
+                  objectFit: "cover",
+                  borderRadius: 2,
+                }}
+              />
+            )}
+            {item.text && <div>{item.text}</div>}
+          </Box>
+        ))}
+        {loop && (
+          <React.Fragment>
+            <IconButton
+              component={m.button}
+              whileTap="tap"
+              whileHover="hover"
+              variants={varHover(1.05)}
+              aria-label="previous"
+              onClick={handlePrevious}
               sx={{
-                width: 1,
-                height: { md: 500, xs: 150 },
-                objectFit: "cover",
+                position: "absolute",
+                left: "-20px",
+                top: "50%",
               }}
-            />
-          )}
-          {item.text && <div>{item.text}</div>}
-        </Box>
-      ))}
-      {loop && (
-        <React.Fragment>
-          <IconButton
-            component={m.button}
-            whileTap="tap"
-            whileHover="hover"
-            variants={varHover(1.05)}
-            aria-label="previous"
-            onClick={handlePrevious}
-            sx={{
-              position: "absolute",
-              left: "-20px",
-              top: "50%",
-            }}
-            style={{
-              backgroundColor: theme.palette.primary.main,
-              color: "white",
-            }}
-          >
-            <NavigateBeforeIcon />
-          </IconButton>
-          <IconButton
-            component={m.button}
-            whileTap="tap"
-            whileHover="hover"
-            variants={varHover(1.05)}
-            aria-label="next"
-            onClick={handleNext}
-            sx={{
-              position: "absolute",
-              right: "-20px",
-              top: "50%",
-            }}
-            style={{
-              backgroundColor: theme.palette.primary.main,
-              color: "white",
-            }}
-          >
-            <NavigateNextIcon />
-          </IconButton>
-        </React.Fragment>
-      )}
-      {!loop && (
-        <React.Fragment>
-          <IconButton
-            component={m.button}
-            whileTap="tap"
-            whileHover="hover"
-            variants={varHover(1.05)}
-            aria-label="previous"
-            onClick={handlePrevious}
-            sx={{
-              position: "absolute",
-              left: "-20px",
-              top: "50%",
-            }}
-            // disabled={activeIndex === 0}
-            style={{
-              backgroundColor: theme.palette.primary.main,
-              color: "white",
-            }}
-          >
-            <NavigateBeforeIcon />
-          </IconButton>
-          <IconButton
-            component={m.button}
-            whileTap="tap"
-            whileHover="hover"
-            variants={varHover(1.05)}
-            aria-label="next"
-            onClick={handleNext}
-            sx={{
-              position: "absolute",
-              right: "-20px",
-              top: "50%",
-            }}
-            style={{
-              backgroundColor: theme.palette.primary.main,
-              color: "white",
-            }}
-          >
-            <NavigateNextIcon />
-          </IconButton>
-        </React.Fragment>
-      )}
+              style={{
+                backgroundColor: theme.palette.primary.main,
+                color: "white",
+              }}
+            >
+              <NavigateBeforeIcon />
+            </IconButton>
+            <IconButton
+              component={m.button}
+              whileTap="tap"
+              whileHover="hover"
+              variants={varHover(1.05)}
+              aria-label="next"
+              onClick={handleNext}
+              sx={{
+                position: "absolute",
+                right: "-20px",
+                top: "50%",
+              }}
+              style={{
+                backgroundColor: theme.palette.primary.main,
+                color: "white",
+              }}
+            >
+              <NavigateNextIcon />
+            </IconButton>
+          </React.Fragment>
+        )}
+        {!loop && (
+          <React.Fragment>
+            <IconButton
+              component={m.button}
+              whileTap="tap"
+              whileHover="hover"
+              variants={varHover(1.05)}
+              aria-label="previous"
+              onClick={handlePrevious}
+              sx={{
+                position: "absolute",
+                left: "-20px",
+                top: "50%",
+              }}
+              // disabled={activeIndex === 0}
+              style={{
+                backgroundColor: theme.palette.primary.main,
+                color: "white",
+              }}
+            >
+              <NavigateBeforeIcon />
+            </IconButton>
+            <IconButton
+              component={m.button}
+              whileTap="tap"
+              whileHover="hover"
+              variants={varHover(1.05)}
+              aria-label="next"
+              onClick={handleNext}
+              sx={{
+                position: "absolute",
+                right: "-20px",
+                top: "50%",
+              }}
+              style={{
+                backgroundColor: theme.palette.primary.main,
+                color: "white",
+              }}
+            >
+              <NavigateNextIcon />
+            </IconButton>
+          </React.Fragment>
+        )}
+      </Box>
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
+          flexWrap: "wrap",
+          gap: 1,
         }}
       >
         {items.map((item, index) => (
@@ -180,7 +176,6 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({
             sx={{
               width: 75,
               height: 50,
-              mx: 1,
               cursor: "pointer",
               opacity: index === activeIndex ? 1 : 0.5,
               borderRadius: 1,
@@ -189,7 +184,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({
           />
         ))}
       </Box>
-    </Box>
+    </React.Fragment>
   );
 };
 

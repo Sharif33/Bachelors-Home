@@ -80,6 +80,9 @@ function createRandomHouses(): IHouses {
       faker.image.urlLoremFlickr({ category: "house" }),
       faker.image.urlLoremFlickr({ category: "washroom" }),
       faker.image.urlLoremFlickr({ category: "kitchen" }),
+      faker.image.urlLoremFlickr({ category: "home" }),
+      faker.image.urlLoremFlickr({ category: "washroom" }),
+      faker.image.urlLoremFlickr({ category: "kitchen" }),
     ],
     houseType: getRandomElement([
       "Room",
