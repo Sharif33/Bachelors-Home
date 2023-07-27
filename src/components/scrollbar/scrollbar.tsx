@@ -3,8 +3,8 @@ import { forwardRef, memo } from "react";
 // @mui
 import Box from "@mui/material/Box";
 //
-import { StyledRootScrollbar, StyledScrollbar } from "./styles.ts";
-import { ScrollbarProps } from "./types.ts";
+import { StyledRootScrollbar, StyledScrollbar } from "./styles";
+import { ScrollbarProps } from "./types";
 
 // ----------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>(
 
     const isMobile =
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        userAgent,
+        userAgent
       );
 
     if (isMobile) {
@@ -40,7 +40,7 @@ const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>(
         </StyledScrollbar>
       </StyledRootScrollbar>
     );
-  },
+  }
 );
 
 export default memo(Scrollbar);
