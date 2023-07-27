@@ -1,4 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
+import SingleHouse from "../features/houses/single-house";
+import FilterSidebar from "../layouts/sidebar/filter-sidebar.layout";
 import ErrorPage from "../pages/error-page";
 import ContactUs from "../pages/home/contact-us-page";
 import Discusion from "../pages/home/discusion.page";
@@ -19,11 +21,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <Discusion />,
+    element: <FilterSidebar />,
     children: [
       {
         path: routesConfig.DISCUSION,
         element: <Discusion />,
+      },
+      {
+        path: "discusion/:_id",
+        element: <SingleHouse />,
       },
     ],
   },
