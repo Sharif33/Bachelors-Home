@@ -37,7 +37,6 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-
   cursor: "pointer",
 }));
 
@@ -51,6 +50,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     width: "100%",
     [theme.breakpoints.up("md")]: {
       width: "30ch",
+    },
+    [theme.breakpoints.down("md")]: {
+      width: "15ch",
     },
   },
 }));
