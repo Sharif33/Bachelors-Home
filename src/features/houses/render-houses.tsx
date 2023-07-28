@@ -31,7 +31,7 @@ const RenderHouses = ({ house }: Props) => {
 
   const navigate = useNavigate();
   const handleHouseClick = () => {
-    navigate(`/discusion/${_id}`);
+    navigate(`/houses/${_id}`);
   };
   return (
     <Card

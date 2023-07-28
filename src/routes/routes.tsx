@@ -1,18 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import SingleHouse from "../features/houses/single-house";
+import HomeLayout from "../layouts/home-layout/home-layout";
 import FilterSidebar from "../layouts/sidebar/filter-sidebar.layout";
 import ErrorPage from "../pages/error-page";
 import ContactUs from "../pages/home/contact-us-page";
-import Discusion from "../pages/home/discusion.page";
 import Home from "../pages/home/home-page";
+import HousesPage from "../pages/houses/houses-page";
 import routesConfig from "./routes.config";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <HomeLayout />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        path: routesConfig.HOME,
+        element: <Home />,
+      },
       {
         path: routesConfig.CONTACTUS,
         element: <ContactUs />,
@@ -24,11 +29,11 @@ const router = createBrowserRouter([
     element: <FilterSidebar />,
     children: [
       {
-        path: routesConfig.DISCUSION,
-        element: <Discusion />,
+        path: routesConfig.HOUSES,
+        element: <HousesPage />,
       },
       {
-        path: "discusion/:_id",
+        path: routesConfig.SINGLE_HOUSE,
         element: <SingleHouse />,
       },
     ],

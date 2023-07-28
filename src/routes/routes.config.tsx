@@ -6,8 +6,9 @@ const routesConfig = {
   CONTACTUS: "/contact_us",
   ABOUTUS: "/about_us",
   // private route
-  DISCUSION: "/discusion",
-  DISCUSION_ID: ":id",
+  HOUSES: "/houses",
+  SINGLE_HOUSE: "houses/:_id",
+  FAQ: "/faq",
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",
   // private route

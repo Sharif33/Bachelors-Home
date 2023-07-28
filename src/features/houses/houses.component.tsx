@@ -4,16 +4,16 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import React from "react";
-import { HOUSES } from "../../features/faker/fake-post";
-import RenderHouses from "../../features/houses/render-houses";
 import SidebarComponent from "../../layouts/sidebar/sidebar.component";
+import { HOUSES } from "../faker/fake-post";
+import RenderHouses from "./render-houses";
 
 const drawerWidth = 300;
 interface Props {
   window?: () => Window;
 }
 
-const Discusion = (props: Props) => {
+const HousesComponent = (props: Props) => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -103,4 +103,4 @@ const Discusion = (props: Props) => {
   );
 };
 
-export default Discusion;
+export default HousesComponent;

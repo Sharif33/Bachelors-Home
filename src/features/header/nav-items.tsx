@@ -1,3 +1,5 @@
+import routesConfig from "../../routes/routes.config";
+
 export interface NavItem {
   title: string;
   path: string;
@@ -6,14 +8,14 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   {
     title: "Home",
-    path: "/",
+    path: routesConfig.HOME,
   },
   {
     title: "Houses",
-    path: "/discusion",
+    path: routesConfig.HOUSES,
   },
   {
     title: "FAQ",
-    path: "/faq",
+    path: routesConfig.FAQ,
   },
 ];
