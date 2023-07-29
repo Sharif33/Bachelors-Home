@@ -17,6 +17,20 @@ export interface ScrollProgressProps extends BoxProps {
   scrollYProgress: MotionValue<number>;
 }
 
+interface CustomBoxProps extends BoxProps {
+  scaleX?: MotionValue<number>;
+}
+
+const CustomBox: React.FC<CustomBoxProps> = ({ scaleX, style, ...other }) => {
+  return (
+    <Box
+      component={m.div}
+      style={{ scaleX, ...style }} // Apply the scaleX prop to style
+      {...other}
+    />
+  );
+};
+
 export default function ScrollProgress({
   color = "primary",
   size = 3,
@@ -31,8 +45,7 @@ export default function ScrollProgress({
   });
 
   return (
-    <Box
-      component={m.div}
+    <CustomBox
       sx={{
         top: 0,
         left: 0,
@@ -48,7 +61,7 @@ export default function ScrollProgress({
         }),
         ...sx,
       }}
-      style={{ scaleX }}
+      scaleX={scaleX} // Pass the scaleX prop to the custom Box component
       {...other}
     />
   );
