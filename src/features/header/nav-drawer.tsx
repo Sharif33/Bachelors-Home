@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import HouseSearch from "../search/house-search";
+import HouseMenu from "./house-menu";
 import { navItems } from "./nav-items";
 
 interface Props {
@@ -47,6 +48,7 @@ export default function NavDrawer({
             </ListItemButton>
           </ListItem>
         ))}
+        <HouseMenu />
       </List>
     </Box>
   );

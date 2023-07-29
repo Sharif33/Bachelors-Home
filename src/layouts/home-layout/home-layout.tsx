@@ -1,7 +1,6 @@
 import { CssBaseline } from "@mui/material";
 
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import { Outlet } from "react-router-dom";
 import FilterNavbar from "../../features/header/filter-navbar";
@@ -28,9 +27,7 @@ export default function HomeLayout() {
         }}
       >
         <Toolbar />
-        <Container>
-          <Outlet />
-        </Container>
+        <Outlet />
       </Box>
     </Box>
   );

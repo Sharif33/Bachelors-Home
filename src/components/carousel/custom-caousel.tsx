@@ -15,6 +15,9 @@ export interface CarouselItem {
 interface CustomCarouselProps {
   items: CarouselItem[];
   loop?: boolean;
+  tab?: boolean;
+  button?: boolean;
+  delay?: number;
 }
 
 const CustomCarousel: React.FC<CustomCarouselProps> = ({
@@ -73,91 +76,48 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({
             {item.text && <div>{item.text}</div>}
           </Box>
         ))}
-        {loop && (
-          <React.Fragment>
-            <IconButton
-              component={m.button}
-              whileTap="tap"
-              whileHover="hover"
-              variants={varHover(1.05)}
-              aria-label="previous"
-              onClick={handlePrevious}
-              sx={{
-                position: "absolute",
-                left: "-20px",
-                top: "50%",
-              }}
-              style={{
-                backgroundColor: theme.palette.primary.main,
-                color: "white",
-              }}
-            >
-              <NavigateBeforeIcon />
-            </IconButton>
-            <IconButton
-              component={m.button}
-              whileTap="tap"
-              whileHover="hover"
-              variants={varHover(1.05)}
-              aria-label="next"
-              onClick={handleNext}
-              sx={{
-                position: "absolute",
-                right: "-20px",
-                top: "50%",
-              }}
-              style={{
-                backgroundColor: theme.palette.primary.main,
-                color: "white",
-              }}
-            >
-              <NavigateNextIcon />
-            </IconButton>
-          </React.Fragment>
-        )}
-        {!loop && (
-          <React.Fragment>
-            <IconButton
-              component={m.button}
-              whileTap="tap"
-              whileHover="hover"
-              variants={varHover(1.05)}
-              aria-label="previous"
-              onClick={handlePrevious}
-              sx={{
-                position: "absolute",
-                left: "-20px",
-                top: "50%",
-              }}
-              // disabled={activeIndex === 0}
-              style={{
-                backgroundColor: theme.palette.primary.main,
-                color: "white",
-              }}
-            >
-              <NavigateBeforeIcon />
-            </IconButton>
-            <IconButton
-              component={m.button}
-              whileTap="tap"
-              whileHover="hover"
-              variants={varHover(1.05)}
-              aria-label="next"
-              onClick={handleNext}
-              sx={{
-                position: "absolute",
-                right: "-20px",
-                top: "50%",
-              }}
-              style={{
-                backgroundColor: theme.palette.primary.main,
-                color: "white",
-              }}
-            >
-              <NavigateNextIcon />
-            </IconButton>
-          </React.Fragment>
-        )}
+
+        <React.Fragment>
+          <IconButton
+            component={m.button}
+            whileTap="tap"
+            whileHover="hover"
+            variants={varHover(1.05)}
+            aria-label="previous"
+            onClick={handlePrevious}
+            sx={{
+              position: "absolute",
+              left: "-20px",
+              top: "50%",
+            }}
+            // disabled={activeIndex === 0}
+            style={{
+              backgroundColor: theme.palette.primary.main,
+              color: "white",
+            }}
+          >
+            <NavigateBeforeIcon />
+          </IconButton>
+          <IconButton
+            component={m.button}
+            whileTap="tap"
+            whileHover="hover"
+            variants={varHover(1.05)}
+            aria-label="next"
+            onClick={handleNext}
+            sx={{
+              position: "absolute",
+              right: "-20px",
+              top: "50%",
+            }}
+            style={{
+              backgroundColor: theme.palette.primary.main,
+              color: "white",
+            }}
+          >
+            <NavigateNextIcon />
+          </IconButton>
+        </React.Fragment>
       </Box>
       <Box
         sx={{

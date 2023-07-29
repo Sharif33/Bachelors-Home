@@ -1,14 +1,17 @@
 import CrossIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, Toolbar, styled } from "@mui/material";
 import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import { m } from "framer-motion";
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import { varHover } from "../../components/animate/variants copy";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import logo from "../../assets/logo.png";
+import { varFade, varHover } from "../../components/animate/variants copy";
 import HouseSearch from "../search/house-search";
+import { textGradient } from "../theme/css";
 import AccountMenu from "./account-menu";
+import HouseMenu from "./house-menu";
 import NavDrawer from "./nav-drawer";
 import { navItems } from "./nav-items";
 
@@ -16,8 +19,24 @@ interface Props {
   window?: () => Window;
 }
 
-const drawerWidth = 240;
+const StyledTextGradient = styled(m.h1)(({ theme }) => ({
+  ...textGradient(
+    `300deg, ${theme.palette.primary.main} 0%, ${theme.palette.warning.main} 25%, ${theme.palette.primary.main} 50%, ${theme.palette.warning.main} 75%, ${theme.palette.primary.main} 100%`
+  ),
+  padding: 0,
+  fontWeight: 800,
+  margin: 0,
+  textAlign: "center",
+  backgroundSize: "400%",
+  fontSize: "1.5rem",
+  fontFamily: "'Barlow', sans-serif",
+  [theme.breakpoints.up("md")]: {
+    fontSize: `2rem`,
+  },
+}));
+
 const FilterNavbar = (props: Props) => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -54,6 +73,7 @@ const FilterNavbar = (props: Props) => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                gap: 2,
               }}
             >
               <IconButton
@@ -65,25 +85,34 @@ const FilterNavbar = (props: Props) => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { md: "none" } }}
+                sx={{ display: { md: "none" } }}
               >
                 {mobileOpen ? <CrossIcon /> : <MenuIcon />}
               </IconButton>
               <Box component={Link} to="/" width={1}>
-                <Typography
-                  variant="h5"
-                  fontSize={{ xs: "1.2rem", md: "1.5rem" }}
-                  noWrap
-                  component="div"
-                  color="#00A76F"
-                  fontWeight={700}
-                >
-                  Bachelors Home
-                </Typography>
+                <m.div variants={varFade().in}>
+                  <StyledTextGradient
+                    animate={{ backgroundPosition: "200% center" }}
+                    transition={{
+                      repeatType: "reverse",
+                      ease: "linear",
+                      duration: 20,
+                      repeat: Infinity,
+                    }}
+                  >
+                    BACHELORS
+                  </StyledTextGradient>
+                </m.div>
               </Box>
-              <Box sx={{ display: { xs: "none", md: "block" } }}>
-                <HouseSearch />
-              </Box>
+              <Box
+                onClick={() => navigate("/")}
+                component="img"
+                src={logo}
+                height={40}
+                width={60}
+                alt="logo"
+                sx={{ cursor: "pointer", display: "none" }}
+              />
             </Box>
 
             <Box
@@ -93,25 +122,35 @@ const FilterNavbar = (props: Props) => {
                 alignItems: "center",
               }}
             >
-              <Box sx={{ display: { xs: "none", md: "block" } }}>
+              <Box sx={{ display: { xs: "none", md: "block" }, width: 1 }}>
+                <HouseSearch />
+              </Box>
+              <Box
+                sx={{
+                  display: { xs: "none", md: "flex" },
+                  alignItems: "center",
+                }}
+              >
                 {navItems.map((item) => (
-                  <Box
-                    component={Link}
+                  <Button
                     key={item.title}
-                    to={item.path}
+                    onClick={() => navigate(item.path)}
                     sx={{
                       color: pathname === item.path ? "#00A76F" : "black",
                       px: 2,
                       fontWeight: "bolder",
+                      fontSize: "1rem",
+                      textTransform: "none",
                       "&:hover": {
                         color: "#00A76F",
-                        fontWeight: "bold",
+                        fontWeight: "bolder",
                       },
                     }}
                   >
                     {item.title}
-                  </Box>
+                  </Button>
                 ))}
+                <HouseMenu />
               </Box>
               <AccountMenu />
             </Box>
