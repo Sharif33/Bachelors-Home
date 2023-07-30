@@ -6,16 +6,14 @@ import ErrorPage from "../pages/error-page";
 import ContactUs from "../pages/home/contact-us-page";
 // import Home from "../pages/home/home-page";
 // import HousesPage from "../pages/houses/houses-page";
+import { lazy } from "react";
 import MessDashboardLayout from "../layouts/dashboard-layout/mess-dashboard-layout";
 import MessDashboardPage from "../pages/dashboard/mess-dashboard/mess-dashboard-page";
 import routesConfig from "./routes.config";
 
-//const Home = lazy(() => import("../pages/home/home-page"));/
-const { default: Home } = await import("../pages/home/home-page");
-const { default: HousesPage } = await import("../pages/houses/houses-page");
-const { default: SingleHouse } = await import(
-  "../features/houses/single-house"
-);
+const Home = lazy(() => import("../pages/home/home-page"));
+const HousesPage = lazy(() => import("../pages/houses/houses-page"));
+const SingleHouse = lazy(() => import("../features/houses/single-house"));
 
 const router = createBrowserRouter([
   {
