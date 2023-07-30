@@ -11,6 +11,15 @@ const routesConfig = {
   FAQ: "/faq",
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",
+  //mess route
+  MESS_DASHBOARD: "dashboard/mess",
+  MESS_SUMMARY: "/summary",
+  MESS_ACCOUNT: "/account",
+  MESS_DETAILS: "/details/:_id",
+  MESS_CREATE: "/create",
+  MESS_EDIT: "/edit/:_id",
+  MESS_DELETE: "/delete/:_id",
+
   // private route
   ADMIN: "/admin",
   ADMIN_DASHBOARD: "/admin/dashboard",

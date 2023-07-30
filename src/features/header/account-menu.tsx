@@ -1,6 +1,7 @@
+import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Logout from "@mui/icons-material/Logout";
-import PersonAdd from "@mui/icons-material/PersonAdd";
 import Settings from "@mui/icons-material/Settings";
+import { Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -10,7 +11,9 @@ import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { m } from "framer-motion";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
 import { varHover } from "../../components/animate/variants copy";
+import routesConfig from "../../routes/routes.config";
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -21,6 +24,8 @@ export default function AccountMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const navigate = useNavigate();
 
   return (
     <React.Fragment>
@@ -96,28 +101,39 @@ export default function AccountMenu() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem onClick={handleClose}>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <Avatar /> My account
-        </MenuItem>
-        <Divider />
-        <MenuItem onClick={handleClose}>
+        <Box sx={{ p: 2, pb: 2 }}>
+          <Typography variant="subtitle2" noWrap>
+            Sharif Rashed
+          </Typography>
+
+          <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
+            sharif.cse.nu@gmail.com
+          </Typography>
+        </Box>
+        <Divider sx={{ borderStyle: "dashed" }} />
+        <MenuItem
+          onClick={() => {
+            navigate(routesConfig.MESS_DASHBOARD), handleClose;
+          }}
+        >
           <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <DashboardOutlinedIcon fontSize="small" />
           </ListItemIcon>
           Dashboard
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem
+          onClick={() => {
+            navigate(routesConfig.MESS_DASHBOARD), handleClose;
+          }}
+        >
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={handleClose} sx={{ color: "error.main" }}>
           <ListItemIcon>
-            <Logout fontSize="small" />
+            <Logout fontSize="small" color="error" />
           </ListItemIcon>
           Logout
         </MenuItem>

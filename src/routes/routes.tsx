@@ -6,6 +6,8 @@ import ErrorPage from "../pages/error-page";
 import ContactUs from "../pages/home/contact-us-page";
 // import Home from "../pages/home/home-page";
 // import HousesPage from "../pages/houses/houses-page";
+import MessDashboardLayout from "../layouts/dashboard-layout/mess-dashboard-layout";
+import MessDashboardPage from "../pages/dashboard/mess-dashboard/mess-dashboard-page";
 import routesConfig from "./routes.config";
 
 //const Home = lazy(() => import("../pages/home/home-page"));/
@@ -31,6 +33,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  //Houses
   {
     path: "/",
     element: <FilterSidebar />,
@@ -42,6 +45,18 @@ const router = createBrowserRouter([
       {
         path: routesConfig.SINGLE_HOUSE,
         element: <SingleHouse />,
+      },
+    ],
+  },
+  //Mess
+  {
+    path: "/",
+    element: <MessDashboardLayout />,
+    children: [
+      {
+        index: true,
+        path: routesConfig.MESS_DASHBOARD,
+        element: <MessDashboardPage />,
       },
     ],
   },

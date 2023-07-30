@@ -3,20 +3,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, Box, Button, Toolbar, styled } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { m } from "framer-motion";
-import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { varFade, varHover } from "../../components/animate/variants copy";
-import HouseSearch from "../search/house-search";
+import AccountMenu from "../header/account-menu";
+import { navItems } from "../header/nav-items";
 import { textGradient } from "../theme/css";
-import AccountMenu from "./account-menu";
-import HouseMenu from "./house-menu";
-import NavDrawer from "./nav-drawer";
-import { navItems } from "./nav-items";
-
-interface Props {
-  window?: () => Window;
-}
 
 const StyledTextGradient = styled(m.h1)(({ theme }) => ({
   ...textGradient(
@@ -34,17 +26,14 @@ const StyledTextGradient = styled(m.h1)(({ theme }) => ({
   },
 }));
 
-const FilterNavbar = (props: Props) => {
+interface Props {
+  mobileOpen: boolean;
+  handleDrawerToggle: () => void;
+}
+
+const MessNavbar = ({ mobileOpen, handleDrawerToggle }: Props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
 
   return (
     <>
@@ -122,9 +111,6 @@ const FilterNavbar = (props: Props) => {
                 gap: 2,
               }}
             >
-              <Box sx={{ display: { xs: "none", md: "block" }, width: 1 }}>
-                <HouseSearch />
-              </Box>
               <Box
                 sx={{
                   display: { xs: "none", md: "flex" },
@@ -150,22 +136,14 @@ const FilterNavbar = (props: Props) => {
                     {item.title}
                   </Button>
                 ))}
-                <HouseMenu />
               </Box>
               <AccountMenu />
             </Box>
           </Toolbar>
         </Box>
       </AppBar>
-      <Box component="nav">
-        <NavDrawer
-          mobileOpen={mobileOpen}
-          handleDrawerToggle={handleDrawerToggle}
-          container={container}
-        />
-      </Box>
     </>
   );
 };
 
-export default FilterNavbar;
+export default MessNavbar;
