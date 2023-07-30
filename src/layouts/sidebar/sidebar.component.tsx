@@ -7,62 +7,40 @@ import {
   ListItemText,
   Typography,
 } from "@mui/material";
-import React from "react";
 import CustomCheckbox from "../../components/checkbox/checkbox";
 import CustomSelect from "../../components/select/custom-select";
 import DistrictSelect from "../../components/select/district-select";
 import DivisionSelect from "../../components/select/division-select";
 import UpazillaSelect from "../../components/select/upazilla-select";
 import RangeSlider from "../../components/slider/range-slider";
-import { DISTRICTS, DIVISIONS } from "../../features/filters/filter-elements";
-import { UPAZILLAS } from "../../features/filters/upazillas";
+import { DIVISIONS } from "../../features/filters/filter-elements";
+import { UseFilters } from "../../features/filters/use-filters";
 
 const SidebarComponent = () => {
-  const initialRangeValues = [1000, 30000];
-  const [selectedItems, setSelectedItems] = React.useState<string[]>([]);
-
-  const handleCheckboxChange = (label: string, checked: boolean) => {
-    if (checked) {
-      setSelectedItems((prevSelected) => [...prevSelected, label]);
-    } else {
-      setSelectedItems((prevSelected) =>
-        prevSelected.filter((item) => item !== label)
-      );
-    }
-  };
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentMonthName = months[currentMonth];
-
-  const [divId, setDivId] = React.useState<string>(DIVISIONS[0].id);
-  const districts = DISTRICTS.filter((item) => item.division_id === divId);
-  const [distId, setDistId] = React.useState<string>(districts[0].id);
-  const upazillas = UPAZILLAS.filter((item) => item.district_id === distId);
-
+  const {
+    handleCheckboxChange,
+    selectedItems,
+    initialRangeValues,
+    currentMonthName,
+    divId,
+    setDivId,
+    districts,
+    distId,
+    setDistId,
+    upazillas,
+    months,
+    currentDate,
+    currentMonth,
+  } = UseFilters();
   return (
     <Box
       sx={{
         blur: 20,
-        opacity: 0.9,
+        backgroundColor: "rgba(255, 255, 255, 0.9)",
         backgroundImage:
           "url(https://minimals.cc/assets/cyan-blur.png), url(https://minimals.cc/assets/red-blur.png)",
         backgroundRepeat: "no-repeat, no-repeat",
-        backgroundPosition: "top right, left bottom",
+        backgroundPosition: "right top, left bottom",
         backgroundSize: "50%, 50%",
       }}
     >
@@ -163,16 +141,6 @@ const SidebarComponent = () => {
             <UpazillaSelect data={upazillas} distId={distId} />
           </ListItem>
         </List>
-        {/*   <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>q</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List> */}
       </Box>
     </Box>
   );

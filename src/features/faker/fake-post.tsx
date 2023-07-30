@@ -127,7 +127,7 @@ function createRandomHouses(): IHouses {
     contactEmail: faker.internet.email(),
     contactAddress: faker.location.streetAddress(),
     contactName: faker.person.fullName(),
-    preferredGender: getRandomElement(["Boys", "Girls"]),
+    preferredGender: getRandomElement(["Bachelor (Boys)", "Bachelor (Girls)"]),
     location: {
       division: randomDivision.name,
       district: randomDistrict.name,

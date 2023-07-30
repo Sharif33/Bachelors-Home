@@ -4,9 +4,9 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import React from "react";
+import HousesPagination from "../../components/pagination/houses-pagination";
 import SidebarComponent from "../../layouts/sidebar/sidebar.component";
-import { HOUSES } from "../faker/fake-post";
-import RenderHouses from "./render-houses";
+import { UseFilters } from "../filters/use-filters";
 
 const drawerWidth = 300;
 interface Props {
@@ -22,6 +22,8 @@ const HousesComponent = (props: Props) => {
   };
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  const { filteredHouses } = UseFilters();
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer
@@ -40,7 +42,7 @@ const HousesComponent = (props: Props) => {
             width: drawerWidth,
             boxSizing: "border-box",
             borderRight: "dashed 1px #e0e0e0",
-            boxShadow: "rgba(0, 0, 0, 0.05) 0px 3px 10px",
+            boxShadow: "rgba(145, 158, 171, 0.24) -40px 40px 80px -8px",
           },
         }}
       >
@@ -95,9 +97,8 @@ const HousesComponent = (props: Props) => {
           Filter
           <FilterAltOutlinedIcon sx={{ mr: 1 }} />
         </Button>
-        {HOUSES.map((house) => (
-          <RenderHouses key={house?._id} house={house} />
-        ))}
+
+        <HousesPagination data={filteredHouses} />
       </Box>
     </Box>
   );

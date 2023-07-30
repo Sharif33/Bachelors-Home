@@ -9,8 +9,8 @@ function App() {
     <div>
       <CustomThemeProvider>
         <MotionLazy>
-          <RouterProvider router={router} />
           <ProgressBar />
+          <RouterProvider router={router} />
         </MotionLazy>
       </CustomThemeProvider>
     </div>

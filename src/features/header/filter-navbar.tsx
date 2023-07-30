@@ -56,7 +56,7 @@ const FilterNavbar = (props: Props) => {
           bgcolor: "transparent",
           backdropFilter: "blur(20px)",
           borderBottom: "dashed 1px #e0e0e0",
-          boxShadow: "rgba(0, 0, 0, 0.05) 0px 3px 10px",
+          boxShadow: "rgba(145, 158, 171, 0.24) -40px 40px 80px -8px",
         }}
       >
         <Container maxWidth="xl">
@@ -120,6 +120,7 @@ const FilterNavbar = (props: Props) => {
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
+                gap: 2,
               }}
             >
               <Box sx={{ display: { xs: "none", md: "block" }, width: 1 }}>
