@@ -1,7 +1,9 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import loadingHome from "./assets/lottie/loading-home.json";
+import Lottiefiles from "./features/lottie-files/lottie-files";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
@@ -17,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
             alignItems: "center",
           }}
         >
-          <CircularProgress />
+          <Lottiefiles image={loadingHome} height={100} />
         </Box>
       }
     >
