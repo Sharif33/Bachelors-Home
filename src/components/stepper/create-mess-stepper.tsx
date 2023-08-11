@@ -35,7 +35,7 @@ export default function CreateMessStepper({ steps, mess }: Props) {
     if (activeStep === 0 && name.length === 0) {
       return true;
     }
-    if (activeStep === 1 && phone.length === 0) {
+    if (activeStep === 1 && phone.length !== 11) {
       return true;
     }
     if (activeStep === 2 && address.length === 0) {

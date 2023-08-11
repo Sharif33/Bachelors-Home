@@ -45,10 +45,18 @@ export interface IHouses {
   };
 }
 
-function getRandomElement<T>(arr: T[]): T {
+export function getRandomElement<T>(arr: T[]): T {
   const randomIndex = Math.floor(Math.random() * arr.length);
   return arr[randomIndex];
 }
+
+export const randomDivision = getRandomElement(DIVISIONS);
+export const randomDistrict = getRandomElement(
+  DISTRICTS.filter((d) => d.division_id === randomDivision.id)
+);
+export const randomUpazilla = getRandomElement(
+  UPAZILLAS.filter((u) => u.district_id === randomDistrict.id)
+);
 
 function getRandomNumber(options: { min?: number; max?: number }): number {
   const { min = 0, max = 1000 } = options;
@@ -56,7 +64,7 @@ function getRandomNumber(options: { min?: number; max?: number }): number {
   return randomNumber - (randomNumber % 100);
 }
 
-function createRandomPhoneNumber(): string {
+export function createRandomPhoneNumber(): string {
   const phoneCode = "+8801";
   const phoneNumber =
     phoneCode +
@@ -66,14 +74,6 @@ function createRandomPhoneNumber(): string {
 }
 
 function createRandomHouses(): IHouses {
-  const randomDivision = getRandomElement(DIVISIONS);
-  const randomDistrict = getRandomElement(
-    DISTRICTS.filter((d) => d.division_id === randomDivision.id)
-  );
-  const randomUpazilla = getRandomElement(
-    UPAZILLAS.filter((u) => u.district_id === randomDistrict.id)
-  );
-
   return {
     _id: faker.string.uuid(),
     images: [
