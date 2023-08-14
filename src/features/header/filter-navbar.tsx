@@ -18,7 +18,7 @@ interface Props {
   window?: () => Window;
 }
 
-const StyledTextGradient = styled(m.h1)(({ theme }) => ({
+export const StyledTextGradient = styled(m.h1)(({ theme }) => ({
   ...textGradient(
     `300deg, ${theme.palette.primary.main} 0%, ${theme.palette.warning.main} 25%, ${theme.palette.primary.main} 50%, ${theme.palette.warning.main} 75%, ${theme.palette.primary.main} 100%`
   ),
