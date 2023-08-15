@@ -2,18 +2,23 @@ import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArro
 import { Box, Button, Typography } from "@mui/material";
 import { m } from "framer-motion";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { varHover } from "../../components/animate/variants copy";
 
 const HomeTopBanner = () => {
   const spinningName = ["Boy", "Girl", "Employee", "Student"];
   const [activeIndex, setActiveIndex] = React.useState(0);
+
   const handleNext = () => {
     setActiveIndex((prevIndex) => (prevIndex + 1) % spinningName.length);
   };
+
   React.useEffect(() => {
     const interval = setInterval(handleNext, 3000);
     return () => clearInterval(interval);
   }, [activeIndex]);
+
+  const navigate = useNavigate();
   return (
     <>
       <Box
@@ -52,7 +57,7 @@ const HomeTopBanner = () => {
             <Typography
               component="div"
               fontWeight={800}
-              fontSize={{ xs: "1.5rem", md: "3.5rem" }}
+              fontSize={{ xs: "2rem", md: "4rem" }}
               lineHeight={1.2}
               // width={{ xs: "100%", md: "45rem" }}
               sx={{ color: "dark" }}
@@ -72,7 +77,7 @@ const HomeTopBanner = () => {
                 }}
               >
                 Bachelor {spinningName[activeIndex]}
-              </Typography>{" "}
+              </Typography>
               ?
             </Typography>
             <Typography
@@ -84,19 +89,20 @@ const HomeTopBanner = () => {
                 fontStyle: "italic",
                 flexWrap: "wrap",
                 pt: 3,
+                width: { xs: "100%", md: "35rem" },
               }}
             >
               We are here to help you find the perfect place for the bachelor to
-              live all over Bangladesh <br /> and give you the best mess
-              experience.
+              live all over Bangladesh and give you the best mess experience.
             </Typography>{" "}
             <br />
             <Button
               component={m.button}
+              onClick={() => navigate("/houses")}
               whileTap="tap"
               whileHover="hover"
               variants={varHover(1.05)}
-              variant="contained"
+              variant="outlined"
               sx={{
                 mt: 2,
                 px: 4,
