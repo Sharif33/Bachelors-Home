@@ -31,6 +31,8 @@ const MessBanner = () => {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center center",
               borderRadius: 2.5,
+              mb: 10,
+              mt: -10,
             }}
           >
             <Box width={1} p={3}>
@@ -43,7 +45,8 @@ const MessBanner = () => {
                     textTransform: "uppercase",
                   }}
                 >
-                  Are you a mess owner? Are you tired of managing your mess?
+                  Are you a mess owner/ manager? Are you tired of managing your
+                  mess?
                 </Typography>
               </m.div>
               <Box sx={{ mt: { md: 1.2, xs: 0 } }}>

@@ -55,7 +55,8 @@ const FilterNavbar = (props: Props) => {
           bgcolor: "transparent",
           backdropFilter: "blur(20px)",
           borderBottom: "dashed 1px #e0e0e0",
-          boxShadow: "rgba(145, 158, 171, 0.24) -40px 40px 80px -8px",
+          //boxShadow: "rgba(145, 158, 171, 0.24) -40px 40px 80px -8px",
+          boxShadow: "none",
         }}
       >
         <Box sx={{ mx: { md: 15, xs: 2.5 } }}>

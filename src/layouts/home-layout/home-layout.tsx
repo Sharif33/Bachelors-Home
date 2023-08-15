@@ -24,7 +24,6 @@ export default function HomeLayout() {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
           position: "relative",
         }}
       >

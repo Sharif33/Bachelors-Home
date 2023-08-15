@@ -1,5 +1,4 @@
-import { Box, Stack, Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import { m } from "framer-motion";
 import { Link as RouterLink } from "react-router-dom";
 import { varFade } from "../../components/animate/variants copy";
@@ -55,7 +54,7 @@ const Footer = () => {
       component="footer"
       sx={{
         minHeight: "20vh",
-        width: "100vw",
+        // width: "100vw",
         position: "relative",
         bgcolor: "background.default",
         borderTop: "dashed 1px #e0e0e0",
@@ -78,7 +77,7 @@ const Footer = () => {
               </Typography>
             </Stack>
           </Grid>
-          <Grid xs={12} md={6}>
+          <Grid item xs={12} md={6}>
             <Stack spacing={5} direction={{ xs: "column", md: "row" }} pt={2}>
               {LINKS.map((list) => (
                 <Stack
