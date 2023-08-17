@@ -31,7 +31,7 @@ const MessBanner = () => {
               backgroundRepeat: "no-repeat",
               backgroundPosition: "center center",
               borderRadius: 2.5,
-              mb: 10,
+              // mb: 10,
               mt: -10,
             }}
           >
