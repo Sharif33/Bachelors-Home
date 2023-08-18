@@ -11,7 +11,7 @@ const LINKS = [
     children: [
       { name: "About us", href: routesConfig.ABOUTUS },
       { name: "Contact us", href: routesConfig.CONTACTUS },
-      { name: "FAQs", href: routesConfig.FAQ },
+      { name: "FAQs", href: routesConfig.FAQs },
     ],
   },
   {

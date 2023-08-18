@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -23,6 +23,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         </Box>
       }
     >
+      <CssBaseline />
       <App />
     </Suspense>
   </React.StrictMode>

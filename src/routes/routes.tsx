@@ -14,6 +14,7 @@ import routesConfig from "./routes.config";
 const Home = lazy(() => import("../pages/home/home-page"));
 const HousesPage = lazy(() => import("../pages/houses/houses-page"));
 const SingleHouse = lazy(() => import("../features/houses/single-house"));
+const FAQsPage = lazy(() => import("../pages/faqs/faqs-page"));
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: routesConfig.CONTACTUS,
         element: <ContactUs />,
+      },
+      {
+        path: routesConfig.FAQs,
+        element: <FAQsPage />,
       },
     ],
   },

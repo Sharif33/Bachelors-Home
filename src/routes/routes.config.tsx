@@ -5,10 +5,10 @@ const routesConfig = {
   REGISTRATION: "/registration",
   CONTACTUS: "/contact_us",
   ABOUTUS: "/about_us",
+  FAQs: "/faqs",
   // private route
   HOUSES: "/houses",
   SINGLE_HOUSE: "houses/:_id",
-  FAQ: "/faq",
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",
   //mess route

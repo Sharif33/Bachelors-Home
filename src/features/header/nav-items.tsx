@@ -11,7 +11,7 @@ export const navItems: NavItem[] = [
     path: routesConfig.HOME,
   },
   {
-    title: "FAQ",
-    path: routesConfig.FAQ,
+    title: "FAQs",
+    path: routesConfig.FAQs,
   },
 ];

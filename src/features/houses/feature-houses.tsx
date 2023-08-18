@@ -26,7 +26,7 @@ const FeatureHouses = () => {
   };
 
   React.useEffect(() => {
-    const interval = setInterval(handleNext, 10000);
+    const interval = setInterval(handleNext, 20000);
     return () => clearInterval(interval);
   }, [activeIndex]);
 
