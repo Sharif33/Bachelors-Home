@@ -1,8 +1,16 @@
 import CrossIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
-import { AppBar, Box, Button, Toolbar, styled } from "@mui/material";
+import {
+  AppBar,
+  Box,
+  Button,
+  Toolbar,
+  Typography,
+  styled,
+} from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { m } from "framer-motion";
+import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { varFade, varHover } from "../../components/animate/variants copy";
@@ -34,6 +42,20 @@ interface Props {
 const MessNavbar = ({ mobileOpen, handleDrawerToggle }: Props) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+
+  const today = new Date();
+  const date = today.getDate();
+  const day = today.toLocaleString("default", { weekday: "long" });
+  const month = today.toLocaleString("default", { month: "long" });
+  const year = today.getFullYear();
+
+  const renderToday = date + " " + month + " " + year;
+
+  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+  const updateTime = () => {
+    setTime(new Date().toLocaleTimeString());
+  };
+  setInterval(updateTime, 1000);
 
   return (
     <>
@@ -102,7 +124,28 @@ const MessNavbar = ({ mobileOpen, handleDrawerToggle }: Props) => {
                 sx={{ cursor: "pointer", display: "none" }}
               />
             </Box>
-
+            <Box
+              sx={{
+                width: "fit-content",
+                textAlign: "center",
+                display: { xs: "none", md: "flex" },
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Typography
+                variant="body2"
+                sx={{ fontWeight: "bold", color: "black" }}
+              >
+                {day}, {time}
+              </Typography>
+              <Typography
+                variant="caption"
+                sx={{ fontWeight: "bold", color: "black" }}
+              >
+                {renderToday}
+              </Typography>
+            </Box>
             <Box
               sx={{
                 display: "flex",

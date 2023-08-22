@@ -50,14 +50,6 @@ export function getRandomElement<T>(arr: T[]): T {
   return arr[randomIndex];
 }
 
-export const randomDivision = getRandomElement(DIVISIONS);
-export const randomDistrict = getRandomElement(
-  DISTRICTS.filter((d) => d.division_id === randomDivision.id)
-);
-export const randomUpazilla = getRandomElement(
-  UPAZILLAS.filter((u) => u.district_id === randomDistrict.id)
-);
-
 function getRandomNumber(options: { min?: number; max?: number }): number {
   const { min = 0, max = 1000 } = options;
   const randomNumber = faker.number.int({ min, max });
@@ -74,16 +66,34 @@ export function createRandomPhoneNumber(): string {
 }
 
 function createRandomHouses(): IHouses {
+  const randomDivision = getRandomElement(DIVISIONS);
+  const randomDistrict = getRandomElement(
+    DISTRICTS.filter((d) => d.division_id === randomDivision.id)
+  );
+  const randomUpazilla = getRandomElement(
+    UPAZILLAS.filter((u) => u.district_id === randomDistrict.id)
+  );
+
+  const imageUrls = [
+    "https://img.freepik.com/free-photo/scandinavian-living-room-interior-design-zoom-background_53876-143147.jpg?w=1380&t=st=1692701565~exp=1692702165~hmac=e8be6b3970a0044fb6c625dc9a19d4c92ad9fb252e6ca628a0e7feb32f26c942",
+    "https://img.freepik.com/free-photo/room-interior-design_23-2148899438.jpg?w=1380&t=st=1692707729~exp=1692708329~hmac=5d186fa2e3d3ef0663b7c7e5888acba489672ac760e3bece30d8f0233ce11a8e",
+    "https://img.freepik.com/free-photo/luxury-bedroom-hotel_1150-10836.jpg?w=1380&t=st=1692708072~exp=1692708672~hmac=6fb7c73e510ea1e5f0bc4a4aa33afaf2628cdb8f7754e2cdd2a6f2c183d8d1ef",
+    "https://img.freepik.com/free-photo/modern-bathroom-with-toilet-bathtub_181624-40037.jpg?w=1380&t=st=1692710170~exp=1692710770~hmac=46c91ebfb16a952e91a9940135c1fe04b51b484ff2f63cf1e10e144cd6d179ca",
+    "https://img.freepik.com/free-photo/small-hotel-room-interior-with-double-bed-bathroom_1262-12489.jpg?w=1380&t=st=1692708225~exp=1692708825~hmac=3680d7dfbf58062b4b2ffbaf0043a03ee9d7c706601e89a45b00e24a0a01dc21",
+    "https://img.freepik.com/free-photo/hygiene-bowl-modern-bath-close_1203-4854.jpg?w=1380&t=st=1692708272~exp=1692708872~hmac=a991d36cebe120536f809a0f9418b4f68b15c51e76753d3f4387e383c17a35e3",
+    "https://img.freepik.com/free-photo/handsome-man-using-cellphone-standing-near-his-friend-cutting-apple-wooden-counter_23-2148195252.jpg?w=1380&t=st=1692708364~exp=1692708964~hmac=425ce40f5124a854a0ed38b483f0b68f699b63d001a6ab9a47538a8706cda54b",
+    "https://img.freepik.com/free-photo/cup-coffee-oatmeal-halved-apple-with-spoons-tray-table_23-2148195224.jpg?w=1380&t=st=1692709287~exp=1692709887~hmac=0c20e3d9483b223ab6f489373509781003281439550b14f4a1c5e78fc0848f48",
+  ];
+
+  const randomImageUrls = [];
+  for (let i = 0; i < imageUrls.length; i++) {
+    const randomImageUrl = getRandomElement(imageUrls);
+    randomImageUrls.push(randomImageUrl);
+  }
+
   return {
     _id: faker.string.uuid(),
-    images: [
-      faker.image.urlLoremFlickr({ category: "house" }),
-      faker.image.urlLoremFlickr({ category: "washroom" }),
-      faker.image.urlLoremFlickr({ category: "kitchen" }),
-      faker.image.urlLoremFlickr({ category: "home" }),
-      faker.image.urlLoremFlickr({ category: "washroom" }),
-      faker.image.urlLoremFlickr({ category: "kitchen" }),
-    ],
+    images: randomImageUrls,
     houseType: getRandomElement([
       "Room",
       "Flat",
@@ -127,7 +137,7 @@ function createRandomHouses(): IHouses {
     contactEmail: faker.internet.email(),
     contactAddress: faker.location.streetAddress(),
     contactName: faker.person.fullName(),
-    preferredGender: getRandomElement(["Bachelor (Boys)", "Bachelor (Girls)"]),
+    preferredGender: getRandomElement(["Boys", "Girls"]),
     location: {
       division: randomDivision.name,
       district: randomDistrict.name,

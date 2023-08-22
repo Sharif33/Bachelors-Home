@@ -1,16 +1,13 @@
 import type { SexType } from "@faker-js/faker";
 import { faker } from "@faker-js/faker";
-import {
-  createRandomPhoneNumber,
-  randomDistrict,
-  randomDivision,
-  randomUpazilla,
-} from "./fake-post";
+import { DISTRICTS, DIVISIONS } from "../filters/filter-elements";
+import { UPAZILLAS } from "../filters/upazillas";
+import { createRandomPhoneNumber, getRandomElement } from "./fake-post";
 
 interface IUser {
   _id: string;
   avatar: string;
-  birthday: Date;
+  birthday: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -23,10 +20,17 @@ interface IUser {
 }
 
 function createRandomUser(): IUser {
+  const randomDivision = getRandomElement(DIVISIONS);
+  const randomDistrict = getRandomElement(
+    DISTRICTS.filter((d) => d.division_id === randomDivision.id)
+  );
+  const randomUpazilla = getRandomElement(
+    UPAZILLAS.filter((u) => u.district_id === randomDistrict.id)
+  );
   return {
     _id: faker.string.uuid(),
     avatar: faker.image.avatar(),
-    birthday: faker.date.birthdate(),
+    birthday: faker.date.birthdate().toLocaleDateString(),
     email: faker.internet.email(),
     firstName: faker.person.firstName(),
     lastName: faker.person.lastName(),
