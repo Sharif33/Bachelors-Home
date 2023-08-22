@@ -68,12 +68,12 @@ const Footer = () => {
             <Stack direction="column" spacing={2} alignItems="flex-start">
               {logoRender()}
               <Typography variant="body2" width={{ md: "40%", xs: 1 }}>
-                {/*   Bachelors-Home is a platform for Bangladeshi bachelors to find
+                Bachelors-Home is a platform for Bangladeshi bachelors to find
                 their ideal home away from home. And for mess owners to find
-                their ideal tenants. <br /> */}
-                We are here to help you find the perfect place for the bachelor
+                their ideal tenants.
+                {/*  We are here to help you find the perfect place for the bachelor
                 to live all over Bangladesh and give you the best mess
-                experience.
+                experience. */}
               </Typography>
             </Stack>
           </Grid>

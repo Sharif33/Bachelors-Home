@@ -28,6 +28,7 @@ export default function MessDashboardLayout(props: Props) {
         display: "flex",
         bgcolor: "#F9FAFB",
         minHeight: "100vh",
+        minWidth: { md: "calc(100vw - 17px)", xs: "100vw" },
       }}
     >
       <CssBaseline />
@@ -48,7 +49,7 @@ export default function MessDashboardLayout(props: Props) {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         <Toolbar />

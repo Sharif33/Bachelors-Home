@@ -1,7 +1,7 @@
 import ComingSoonPage from "../../coming-soon-page";
 
-const MessDashboardPage = () => {
+const MessSummaryPage = () => {
   return <ComingSoonPage />;
 };
 
-export default MessDashboardPage;
+export default MessSummaryPage;

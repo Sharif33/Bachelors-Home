@@ -2,7 +2,11 @@ import routesConfig from "../../routes/routes.config";
 
 export const messNavItems = [
   {
-    title: "Mess",
+    title: "My Mess",
+    path: routesConfig.MESS_DASHBOARD,
+  },
+  {
+    title: "Mess Summary",
     path: routesConfig.MESS_SUMMARY,
   },
   {

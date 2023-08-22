@@ -9,7 +9,6 @@ import ContactUs from "../pages/home/contact-us-page";
 import { lazy } from "react";
 import MessDashboardLayout from "../layouts/dashboard-layout/mess-dashboard-layout";
 import PublicLayout from "../layouts/public-layout/public-layout";
-import MessDashboardPage from "../pages/dashboard/mess-dashboard/mess-dashboard-page";
 import routesConfig from "./routes.config";
 
 const Home = lazy(() => import("../pages/home/home-page"));
@@ -21,6 +20,15 @@ const Registration = lazy(() => import("../pages/auth/register"));
 const ForgetPassword = lazy(() => import("../pages/auth/forgot-password"));
 const ResetPassword = lazy(() => import("../pages/auth/reset-password"));
 const VerifyEmail = lazy(() => import("../pages/auth/verify"));
+const MessDashboardPage = lazy(
+  () => import("../pages/dashboard/mess-dashboard/mess-dashboard-page")
+);
+const MessSummaryPage = lazy(
+  () => import("../pages/dashboard/mess-dashboard/mess-summary-page")
+);
+const MessAccountPage = lazy(
+  () => import("../pages/dashboard/mess-dashboard/mess-account-page")
+);
 
 const router = createBrowserRouter([
   {
@@ -93,6 +101,14 @@ const router = createBrowserRouter([
         index: true,
         path: routesConfig.MESS_DASHBOARD,
         element: <MessDashboardPage />,
+      },
+      {
+        path: routesConfig.MESS_SUMMARY,
+        element: <MessSummaryPage />,
+      },
+      {
+        path: routesConfig.MESS_ACCOUNT,
+        element: <MessAccountPage />,
       },
     ],
   },
