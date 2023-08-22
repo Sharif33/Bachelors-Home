@@ -11,8 +11,8 @@ const items = [
     path: routesConfig.HOUSES,
   },
   {
-    title: "Create Request",
-    path: "/create-request",
+    title: "Request For House",
+    path: routesConfig.CREATE_HOUSE_REQUEST,
   },
   {
     title: "Submit House",

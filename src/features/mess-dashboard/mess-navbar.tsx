@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { m } from "framer-motion";
-import React from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { varFade, varHover } from "../../components/animate/variants copy";
@@ -51,11 +51,20 @@ const MessNavbar = ({ mobileOpen, handleDrawerToggle }: Props) => {
 
   const renderToday = date + " " + month + " " + year;
 
-  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
-  const updateTime = () => {
+  const [time, setTime] = useState(new Date().toLocaleTimeString());
+
+  const updateTime = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     setTime(new Date().toLocaleTimeString());
   };
-  setInterval(updateTime, 1000);
+
+  useEffect(() => {
+    const intervalId = setInterval(updateTime, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <>

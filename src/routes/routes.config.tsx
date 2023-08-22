@@ -12,12 +12,13 @@ const routesConfig = {
   // private route
   HOUSES: "/houses",
   SINGLE_HOUSE: "houses/:_id",
+  CREATE_HOUSE_REQUEST: "/create_house_request",
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",
   //mess route
   MESS_DASHBOARD: "dashboard/mess",
-  MESS_SUMMARY: "/summary",
-  MESS_ACCOUNT: "/account",
+  MESS_SUMMARY: "dashboard/mess_summary",
+  MESS_ACCOUNT: "dashboard/mess_account",
   MESS_DETAILS: "/details/:_id",
   MESS_CREATE: "/create",
   MESS_EDIT: "/edit/:_id",

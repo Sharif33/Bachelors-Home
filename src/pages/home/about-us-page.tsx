@@ -1,7 +1,7 @@
 import ComingSoonPage from "../coming-soon-page";
 
-const ContactUs = () => {
+const AboutUsPage = () => {
   return <ComingSoonPage />;
 };
 
-export default ContactUs;
+export default AboutUsPage;

@@ -64,10 +64,10 @@ const Footer = () => {
     >
       <Box py={5}>
         <Grid container spacing={{ xs: 2, md: 3 }}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={5}>
             <Stack direction="column" spacing={2} alignItems="flex-start">
               {logoRender()}
-              <Typography variant="body2" width={{ md: "40%", xs: 1 }}>
+              <Typography variant="body2" width={{ md: "60%", xs: 1 }}>
                 Bachelors-Home is a platform for Bangladeshi bachelors to find
                 their ideal home away from home. And for mess owners to find
                 their ideal tenants.
@@ -77,7 +77,7 @@ const Footer = () => {
               </Typography>
             </Stack>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={7}>
             <Stack spacing={5} direction={{ xs: "column", md: "row" }} pt={2}>
               {LINKS.map((list) => (
                 <Stack

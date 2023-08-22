@@ -1,25 +1,28 @@
+import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
-// import SingleHouse from "../features/houses/single-house";
+import MessDashboardLayout from "../layouts/dashboard-layout/mess-dashboard-layout";
 import HomeLayout from "../layouts/home-layout/home-layout";
+import PublicLayout from "../layouts/public-layout/public-layout";
 import FilterSidebar from "../layouts/sidebar/filter-sidebar.layout";
 import ErrorPage from "../pages/error-page";
-import ContactUs from "../pages/home/contact-us-page";
-// import Home from "../pages/home/home-page";
-// import HousesPage from "../pages/houses/houses-page";
-import { lazy } from "react";
-import MessDashboardLayout from "../layouts/dashboard-layout/mess-dashboard-layout";
-import PublicLayout from "../layouts/public-layout/public-layout";
 import routesConfig from "./routes.config";
 
 const Home = lazy(() => import("../pages/home/home-page"));
 const HousesPage = lazy(() => import("../pages/houses/houses-page"));
 const SingleHouse = lazy(() => import("../features/houses/single-house"));
+const CreateHouseRequest = lazy(
+  () => import("../pages/houses/create-house-requests-page")
+);
+const AboutUsPage = lazy(() => import("../pages/home/about-us-page"));
+const ContactUs = lazy(() => import("../pages/home/contact-us-page"));
 const FAQsPage = lazy(() => import("../pages/faqs/faqs-page"));
+
 const Login = lazy(() => import("../pages/auth/login"));
 const Registration = lazy(() => import("../pages/auth/register"));
 const ForgetPassword = lazy(() => import("../pages/auth/forgot-password"));
 const ResetPassword = lazy(() => import("../pages/auth/reset-password"));
 const VerifyEmail = lazy(() => import("../pages/auth/verify"));
+
 const MessDashboardPage = lazy(
   () => import("../pages/dashboard/mess-dashboard/mess-dashboard-page")
 );
@@ -39,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: routesConfig.HOME,
         element: <Home />,
+      },
+      {
+        path: routesConfig.ABOUTUS,
+        element: <AboutUsPage />,
       },
       {
         path: routesConfig.CONTACTUS,
@@ -89,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: routesConfig.SINGLE_HOUSE,
         element: <SingleHouse />,
+      },
+      {
+        path: routesConfig.CREATE_HOUSE_REQUEST,
+        element: <CreateHouseRequest />,
       },
     ],
   },

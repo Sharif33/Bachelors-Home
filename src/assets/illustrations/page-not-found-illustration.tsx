@@ -29,13 +29,13 @@ function PageNotFoundIllustration({ ...other }: BoxProps) {
     >
       <BackgroundShape />
 
-      <image
+      {/*  <image
         href="/assets/illustrations/characters/character_6.png"
         height="300"
         x="205"
         y="30"
       />
-
+ */}
       <path
         fill="#FFAB00"
         d="M111.1 141.2c58.7-1 58.6-88.3 0-89.2-58.6 1-58.6 88.3 0 89.2z"

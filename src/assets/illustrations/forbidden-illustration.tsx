@@ -29,12 +29,12 @@ function ForbiddenIllustration({ ...other }: BoxProps) {
     >
       <BackgroundShape />
 
-      <image
+      {/*    <image
         href="/assets/illustrations/characters/character_4.png"
         height="300"
         x="220"
         y="30"
-      />
+      /> */}
 
       <path
         fill={PRIMARY_MAIN}
