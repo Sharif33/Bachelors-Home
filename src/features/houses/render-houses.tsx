@@ -9,6 +9,8 @@ import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import formatDate from "../../hooks/formate-date";
+import getLocalNumber from "../../hooks/use-number-format";
 import { IHouses } from "../faker/fake-post";
 import "./styles.css";
 
@@ -110,12 +112,14 @@ const RenderHouses = ({ house }: Props) => {
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <CalendarMonthOutlinedIcon sx={{ mr: 1 }} />
             <Typography variant="body2">
-              Available From: {availableFrom}
+              Available From: {formatDate(availableFrom)}
             </Typography>
           </Box>
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <PaymentsOutlinedIcon sx={{ mr: 1 }} />
-            <Typography variant="body2">Rent: {houseRent}Tk /month</Typography>
+            <Typography variant="body2">
+              Rent: {getLocalNumber(Number(houseRent))} &#2547;/month
+            </Typography>
           </Box>
 
           <Box sx={{ display: "flex", alignItems: "center" }}>

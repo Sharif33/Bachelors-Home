@@ -90,9 +90,15 @@ export default function HouseMenu() {
         }}
         MenuListProps={{
           "aria-labelledby": "basic-button",
+          "aria-orientation": "vertical",
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        aria-label="house-menu"
+        aria-controls="primary-search-house-menu"
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        disableScrollLock={true}
       >
         {items.map((item) => (
           <MenuItem

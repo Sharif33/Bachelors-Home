@@ -25,6 +25,9 @@ export default function UpazillaSelect({
       <Autocomplete
         size="small"
         value={value}
+        aria-label="upazilla-select"
+        aria-required="true"
+        disablePortal
         options={data.map((item) => item.name)}
         isOptionEqualToValue={(option, value) => option === value}
         onChange={(_event, newValue) => {

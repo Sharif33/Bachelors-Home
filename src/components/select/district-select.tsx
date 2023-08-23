@@ -34,6 +34,9 @@ export default function DistrictSelect({
       <Autocomplete
         size="small"
         value={value}
+        aria-label="district-select"
+        aria-required="true"
+        disablePortal
         options={data.map((item) => item.name)}
         isOptionEqualToValue={(option, value) => option === value}
         onChange={(_event, newValue) => {

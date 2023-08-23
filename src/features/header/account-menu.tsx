@@ -100,6 +100,11 @@ export default function AccountMenu() {
         }}
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        aria-label="account of current user"
+        aria-controls="primary-search-account-menu"
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        // disableScrollLock={true}
       >
         <Box sx={{ p: 2, pb: 2 }}>
           <Typography variant="subtitle2" noWrap>

@@ -26,10 +26,11 @@ export interface IHouses {
   security: boolean;
   cctv: boolean;
   wifi: boolean;
-  gas: boolean;
-  gasFacility: boolean;
+  gasBill: number | string;
+  gasFacility: string;
   water: boolean;
-  electricity: boolean;
+  electricity: string;
+  electricityBill: string;
   description: string;
   contactNo: string;
   contactEmail: string;
@@ -128,10 +129,11 @@ function createRandomHouses(): IHouses {
     security: faker.datatype.boolean(),
     cctv: faker.datatype.boolean(),
     wifi: faker.datatype.boolean(),
-    gas: faker.datatype.boolean(),
-    gasFacility: faker.datatype.boolean(),
+    gasBill: getRandomNumber({ min: 500, max: 2000 }),
+    gasFacility: getRandomElement(["Line", "Cylinder"]),
     water: faker.datatype.boolean(),
-    electricity: faker.datatype.boolean(),
+    electricity: getRandomElement(["Line", "Prepaid", "Postpaid"]),
+    electricityBill: getRandomElement(["Included", "Excluded"]),
     description: faker.lorem.paragraph(),
     contactNo: createRandomPhoneNumber(),
     contactEmail: faker.internet.email(),

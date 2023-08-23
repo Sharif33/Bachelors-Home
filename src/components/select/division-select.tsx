@@ -28,6 +28,9 @@ export default function DivisionSelect({
       <Autocomplete
         size="small"
         value={value}
+        aria-label="division-select"
+        aria-required="true"
+        disablePortal
         onChange={(_event, newValue) => {
           setValue(newValue);
         }}
