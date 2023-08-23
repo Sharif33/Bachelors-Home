@@ -36,7 +36,6 @@ const SingleHouse = () => {
     bathRoom,
     bedRoom,
     cctv,
-    commomWashroom,
     contactAddress,
     contactEmail,
     contactName,
@@ -134,7 +133,29 @@ const SingleHouse = () => {
 
               <Typography fontSize={{ md: 18, xs: 16 }}>
                 <span style={{ fontWeight: 600 }}>Security: </span>
-                {security ? "Yes" : "No"}
+                {security ? "Yes" : "Guard"}
+              </Typography>
+            </Stack>{" "}
+            <Stack direction="row" spacing={2}>
+              <Typography fontSize={{ md: 18, xs: 16 }}>
+                <span style={{ fontWeight: 600 }}>Gas: </span>
+                {getLocalNumber(Number(gasBill))} BDT
+              </Typography>
+              <Typography fontSize={{ md: 18, xs: 16 }}>
+                <span style={{ fontWeight: 600 }}>Gas Facility: </span>
+                {gasFacility}
+              </Typography>
+              <Typography fontSize={{ md: 18, xs: 16 }}>
+                <span style={{ fontWeight: 600 }}>Water: </span>
+                {water ? "Yes, 24/7" : "Occasionally n/a"}
+              </Typography>
+              <Typography fontSize={{ md: 18, xs: 16 }}>
+                <span style={{ fontWeight: 600 }}>Electricity: </span>
+                {electricity}
+              </Typography>
+              <Typography fontSize={{ md: 18, xs: 16 }}>
+                <span style={{ fontWeight: 600 }}>Electricity Bill: </span>
+                {electricityBill}
               </Typography>
             </Stack>
             <Stack direction="row" spacing={2}>
@@ -153,10 +174,6 @@ const SingleHouse = () => {
               <Typography fontSize={{ md: 18, xs: 16 }}>
                 <span style={{ fontWeight: 600 }}>Attached Washroom: </span>
                 {attachedWashroom ? "Yes" : "No"}
-              </Typography>
-              <Typography fontSize={{ md: 18, xs: 16 }}>
-                <span style={{ fontWeight: 600 }}>Common Washroom: </span>
-                {commomWashroom ? "Yes" : "No"}
               </Typography>
             </Stack>
             <Stack direction="row" spacing={2}>
@@ -181,29 +198,6 @@ const SingleHouse = () => {
                 {wifi ? "Yes" : "No"}
               </Typography>
             </Stack>
-            <Stack direction="row" spacing={2}>
-              <Typography fontSize={{ md: 18, xs: 16 }}>
-                <span style={{ fontWeight: 600 }}>Gas: </span>
-                {getLocalNumber(Number(gasBill))}
-              </Typography>
-              <Typography fontSize={{ md: 18, xs: 16 }}>
-                <span style={{ fontWeight: 600 }}>Gas Facility: </span>
-                {gasFacility}
-              </Typography>
-              <Typography fontSize={{ md: 18, xs: 16 }}>
-                <span style={{ fontWeight: 600 }}>Water: </span>
-                {water ? "Yes" : "No"}
-              </Typography>
-              <Typography fontSize={{ md: 18, xs: 16 }}>
-                <span style={{ fontWeight: 600 }}>Electricity: </span>
-                {electricity}
-              </Typography>
-              <Typography fontSize={{ md: 18, xs: 16 }}>
-                <span style={{ fontWeight: 600 }}>Electricity Bill: </span>
-                {electricityBill}
-              </Typography>
-            </Stack>
-
             <Typography component="div" fontSize={{ md: 22, xs: 16 }}>
               {boldText("Description")}
               <Divider

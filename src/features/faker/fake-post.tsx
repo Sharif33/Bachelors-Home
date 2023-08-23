@@ -19,7 +19,6 @@ export interface IHouses {
   floorType: string;
   diningSpace: number | string;
   attachedWashroom: boolean;
-  commomWashroom: boolean;
   lift: boolean;
   parking: boolean;
   generator: boolean;
@@ -122,7 +121,6 @@ function createRandomHouses(): IHouses {
     floorType: getRandomElement(["Tiles", "Marble", "Wooden", "Cement"]),
     diningSpace: getRandomNumber({ min: 1, max: 1 }),
     attachedWashroom: faker.datatype.boolean(),
-    commomWashroom: faker.datatype.boolean(),
     lift: faker.datatype.boolean(),
     parking: faker.datatype.boolean(),
     generator: faker.datatype.boolean(),
