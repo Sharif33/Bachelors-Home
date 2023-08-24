@@ -51,7 +51,7 @@ const CustomCarousel: React.FC<CustomCarouselProps> = ({
 
   return (
     <React.Fragment>
-      <Box sx={{ position: "relative" }}>
+      <Box sx={{ position: "relative", width: 1, mx: "auto" }}>
         {items.map((item, index) => (
           <Box
             key={index}

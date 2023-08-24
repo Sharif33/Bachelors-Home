@@ -1,5 +1,4 @@
-import { Divider } from "@mui/material";
-import Container from "@mui/material/Container";
+import { Divider, Grid, Toolbar } from "@mui/material";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import React from "react";
@@ -10,6 +9,7 @@ import CustomCarousel, {
 import formatDate from "../../hooks/formate-date";
 import getLocalNumber from "../../hooks/use-number-format";
 import { HOUSES } from "../faker/fake-post";
+import ContactOwner from "./contact-owner";
 
 const colors = ["#F59C28", "#8E33FF", "#00B8D9", "#22C55E", "#FFAB00", "black"];
 const randomColor = colors[Math.floor(Math.random() * colors.length)];
@@ -66,20 +66,21 @@ const SingleHouse = () => {
 
   return (
     <React.Fragment>
-      <Container>
-        <CustomCarousel items={carouselItems} loop />
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          my={5}
-        >
+      <Grid
+        container
+        spacing={{ md: 5, xs: 1.5 }}
+        px={{ md: 15, xl: 25, xs: 2 }}
+      >
+        <Grid item xs={12} md={9}>
           <Stack
             direction="column"
             justifyContent="start"
             alignItems="start"
             spacing={2}
+            width={1}
+            my={5}
           >
+            <CustomCarousel items={carouselItems} loop />
             <Typography fontSize={{ md: 20, xs: 16 }} sx={{ color: "gray" }}>
               {boldText(houseType)} available from{" "}
               {boldText(formatDate(availableFrom))} at {boldText(upazilla)},{" "}
@@ -91,7 +92,7 @@ const SingleHouse = () => {
                 sx={{ width: 1 / 3, border: 1, borderColor: randomColor }}
               />
             </Typography>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={2} flexWrap="wrap">
               <Typography fontSize={{ md: 18, xs: 16 }}>
                 <span style={{ fontWeight: 600 }}>House Type: </span>
                 {houseType}
@@ -117,7 +118,7 @@ const SingleHouse = () => {
                 {getLocalNumber(Number(houseSize))} sqft
               </Typography>
             </Stack>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={2} flexWrap="wrap">
               <Typography fontSize={{ md: 18, xs: 16 }}>
                 <span style={{ fontWeight: 600 }}>Rent: </span>
                 {getLocalNumber(Number(houseRent))} BDT
@@ -135,8 +136,8 @@ const SingleHouse = () => {
                 <span style={{ fontWeight: 600 }}>Security: </span>
                 {security ? "Yes" : "Guard"}
               </Typography>
-            </Stack>{" "}
-            <Stack direction="row" spacing={2}>
+            </Stack>
+            <Stack direction="row" spacing={2} flexWrap="wrap">
               <Typography fontSize={{ md: 18, xs: 16 }}>
                 <span style={{ fontWeight: 600 }}>Gas: </span>
                 {getLocalNumber(Number(gasBill))} BDT
@@ -158,7 +159,7 @@ const SingleHouse = () => {
                 {electricityBill}
               </Typography>
             </Stack>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={2} flexWrap="wrap">
               <Typography fontSize={{ md: 18, xs: 16 }}>
                 <span style={{ fontWeight: 600 }}>Balcony: </span>
                 {balcony}
@@ -176,7 +177,7 @@ const SingleHouse = () => {
                 {attachedWashroom ? "Yes" : "No"}
               </Typography>
             </Stack>
-            <Stack direction="row" spacing={2}>
+            <Stack direction="row" spacing={2} flexWrap="wrap">
               <Typography fontSize={{ md: 18, xs: 16 }}>
                 <span style={{ fontWeight: 600 }}>Lift: </span>
                 {lift ? "Yes" : "No"}
@@ -215,8 +216,25 @@ const SingleHouse = () => {
               {address}, {upazilla}, {district}, {division}
             </Typography>
           </Stack>
-        </Stack>
-      </Container>
+        </Grid>
+        <Grid item xs={12} md={3} width={1}>
+          <Stack
+            direction="column"
+            justifyContent="start"
+            alignItems="start"
+            sx={{ position: "sticky", top: 0, right: 0 }}
+          >
+            <Toolbar />
+            <ContactOwner
+              contactName={contactName}
+              contactNo={contactNo}
+              contactEmail={contactEmail}
+              contactAddress={contactAddress}
+              houseType={houseType}
+            />
+          </Stack>
+        </Grid>
+      </Grid>
     </React.Fragment>
   );
 };
