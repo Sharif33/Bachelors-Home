@@ -48,6 +48,10 @@ const router = createBrowserRouter([
         element: <SingleHouse />,
       },
       {
+        path: routesConfig.CREATE_HOUSE_REQUEST,
+        element: <CreateHouseRequest />,
+      },
+      {
         path: routesConfig.ABOUTUS,
         element: <AboutUsPage />,
       },
@@ -96,10 +100,6 @@ const router = createBrowserRouter([
       {
         path: routesConfig.HOUSES,
         element: <HousesPage />,
-      },
-      {
-        path: routesConfig.CREATE_HOUSE_REQUEST,
-        element: <CreateHouseRequest />,
       },
     ],
   },

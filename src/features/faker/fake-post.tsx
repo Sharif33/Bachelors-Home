@@ -50,7 +50,10 @@ export function getRandomElement<T>(arr: T[]): T {
   return arr[randomIndex];
 }
 
-function getRandomNumber(options: { min?: number; max?: number }): number {
+export function getRandomNumber(options: {
+  min?: number;
+  max?: number;
+}): number {
   const { min = 0, max = 1000 } = options;
   const randomNumber = faker.number.int({ min, max });
   return randomNumber - (randomNumber % 100);

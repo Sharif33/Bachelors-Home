@@ -6,17 +6,11 @@ import { useParams } from "react-router-dom";
 import CustomCarousel, {
   CarouselItem,
 } from "../../components/carousel/custom-caousel";
+import { boldText, randomColor } from "../../hooks/bold-text";
 import formatDate from "../../hooks/formate-date";
 import getLocalNumber from "../../hooks/use-number-format";
 import { HOUSES } from "../faker/fake-post";
 import ContactOwner from "./contact-owner";
-
-const colors = ["#F59C28", "#8E33FF", "#00B8D9", "#22C55E", "#FFAB00", "black"];
-const randomColor = colors[Math.floor(Math.random() * colors.length)];
-
-export const boldText = (text: string) => (
-  <span style={{ fontWeight: 700, color: randomColor }}>{text}</span>
-);
 
 const SingleHouse = () => {
   let { _id } = useParams();

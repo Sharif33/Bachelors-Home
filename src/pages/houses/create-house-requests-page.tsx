@@ -1,7 +1,7 @@
-import ComingSoonPage from "../coming-soon-page";
+import RequestHouses from "../../features/houses/request-houses/request-houses";
 
 const CreateHouseRequestPage = () => {
-  return <ComingSoonPage />;
+  return <RequestHouses />;
 };
 
 export default CreateHouseRequestPage;
