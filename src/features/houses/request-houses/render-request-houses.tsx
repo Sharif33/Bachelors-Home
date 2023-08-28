@@ -17,6 +17,7 @@ import {
   alpha,
 } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { boldText } from "../../../hooks/bold-text";
 import formatDate from "../../../hooks/formate-date";
 import getLocalNumber from "../../../hooks/use-number-format";
@@ -47,6 +48,11 @@ export const RenderRequestHouses = ({ house }: RenderRequestHousesProps) => {
     setSeeMore((prev) => !prev);
   };
 
+  const navigate = useNavigate();
+  const handleHouseClick = () => {
+    navigate(`/house_request/${_id}`);
+  };
+
   return (
     <Card
       sx={{
@@ -70,7 +76,7 @@ export const RenderRequestHouses = ({ house }: RenderRequestHousesProps) => {
         }}
       >
         <ListItem>
-          <ListItemAvatar>
+          <ListItemAvatar onClick={handleHouseClick}>
             <Avatar alt="Profile Picture" src={avatar} />
           </ListItemAvatar>
           <ListItemText

@@ -6,11 +6,14 @@ import Divider from "@mui/material/Divider";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 import { useTheme } from "@mui/material/styles";
+import { useParams } from "react-router-dom";
 import AvatarShape from "../../../assets/illustrations/avatar-shape";
 import Image from "../../../components/image/image";
+import { REQUEST_HOUSES } from "../../faker/fake-house-request";
 export default function UserCard() {
   const theme = useTheme();
-
+  let { _id } = useParams();
+  const user = REQUEST_HOUSES?.find((house) => house._id === _id);
   return (
     <Card
       sx={{
@@ -45,9 +48,8 @@ export default function UserCard() {
             position: "absolute",
             bgcolor: "primary.main",
           }}
-        >
-          S
-        </Avatar>
+          src={user?.avatar}
+        />
 
         <Image
           src="https://img.freepik.com/free-vector/stay-home-abstract-concept-vector-illustration-forced-isolation-covid19-outbreak-prevention-measures-social-distance-governmental-support-self-protection-wear-mask-abstract-metaphor_335657-4138.jpg?w=826&t=st=1692101377~exp=1692101977~hmac=b1e7226f3313a03be33fd25f8c7d9a3826b7cfd029079ba4350f9735f5c8eecc"
@@ -59,8 +61,8 @@ export default function UserCard() {
 
       <ListItemText
         sx={{ mt: 7, mb: 1 }}
-        primary="Sharif Rashed"
-        secondary="Software Engineer"
+        primary={`${user?.firstName} ${user?.lastName}`}
+        secondary={user?.phone}
         primaryTypographyProps={{ typography: "subtitle1" }}
         secondaryTypographyProps={{ component: "span", mt: 0.5 }}
       />
@@ -80,7 +82,7 @@ export default function UserCard() {
           >
             Live
           </Typography>
-          @mirpur, Dhaka
+          @{user?.upazilla}, {user?.district}
         </div>
 
         <div>
@@ -91,7 +93,7 @@ export default function UserCard() {
           >
             From
           </Typography>
-          @debidwar, Cumilla
+          @{user?.upazilla}, {user?.district}
         </div>
       </Box>
     </Card>

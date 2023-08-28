@@ -10,7 +10,6 @@ import { varFade, varHover } from "../../components/animate/variants copy";
 import HouseSearch from "../search/house-search";
 import { textGradient } from "../theme/css";
 import AccountMenu from "./account-menu";
-import HouseMenu from "./house-menu";
 import NavDrawer from "./nav-drawer";
 import { navItems } from "./nav-items";
 
@@ -123,13 +122,14 @@ const FilterNavbar = (props: Props) => {
                 gap: 2,
               }}
             >
-              <Box sx={{ display: { xs: "none", md: "block" }, width: 1 }}>
+              <Box sx={{ display: { xs: "none", md: "block" } }}>
                 <HouseSearch />
               </Box>
               <Box
                 sx={{
                   display: { xs: "none", md: "flex" },
                   alignItems: "center",
+                  width: 1,
                 }}
               >
                 {navItems.map((item) => (
@@ -151,7 +151,6 @@ const FilterNavbar = (props: Props) => {
                     {item.title}
                   </Button>
                 ))}
-                <HouseMenu />
               </Box>
               <AccountMenu />
             </Box>

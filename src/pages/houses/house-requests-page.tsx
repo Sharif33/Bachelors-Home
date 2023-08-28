@@ -1,7 +1,7 @@
 import RequestHouses from "../../features/houses/request-houses/request-houses";
 
-const CreateHouseRequestPage = () => {
+const HouseRequestsPage = () => {
   return <RequestHouses />;
 };
 
-export default CreateHouseRequestPage;
+export default HouseRequestsPage;

@@ -1,5 +1,6 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import UserCard from "../features/houses/request-houses/user-card";
 import MessDashboardLayout from "../layouts/dashboard-layout/mess-dashboard-layout";
 import HomeLayout from "../layouts/home-layout/home-layout";
 import PublicLayout from "../layouts/public-layout/public-layout";
@@ -11,7 +12,7 @@ const Home = lazy(() => import("../pages/home/home-page"));
 const HousesPage = lazy(() => import("../pages/houses/houses-page"));
 const SingleHouse = lazy(() => import("../features/houses/single-house"));
 const CreateHouseRequest = lazy(
-  () => import("../pages/houses/create-house-requests-page")
+  () => import("../pages/houses/house-requests-page")
 );
 const AboutUsPage = lazy(() => import("../pages/home/about-us-page"));
 const ContactUs = lazy(() => import("../pages/home/contact-us-page"));
@@ -47,10 +48,7 @@ const router = createBrowserRouter([
         path: routesConfig.SINGLE_HOUSE,
         element: <SingleHouse />,
       },
-      {
-        path: routesConfig.CREATE_HOUSE_REQUEST,
-        element: <CreateHouseRequest />,
-      },
+
       {
         path: routesConfig.ABOUTUS,
         element: <AboutUsPage />,
@@ -62,6 +60,20 @@ const router = createBrowserRouter([
       {
         path: routesConfig.FAQs,
         element: <FAQsPage />,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <CreateHouseRequest />,
+    children: [
+      {
+        path: routesConfig.HOUSE_REQUESTS,
+        element: <CreateHouseRequest />,
+      },
+      {
+        path: routesConfig.SINGLE_HOUSE_REQUEST,
+        element: <UserCard />,
       },
     ],
   },
