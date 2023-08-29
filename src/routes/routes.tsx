@@ -64,13 +64,9 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/",
+    path: "/house_requests",
     element: <CreateHouseRequest />,
     children: [
-      {
-        path: routesConfig.HOUSE_REQUESTS,
-        element: <CreateHouseRequest />,
-      },
       {
         path: routesConfig.SINGLE_HOUSE_REQUEST,
         element: <UserCard />,

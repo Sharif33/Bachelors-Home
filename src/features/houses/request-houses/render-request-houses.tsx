@@ -50,7 +50,7 @@ export const RenderRequestHouses = ({ house }: RenderRequestHousesProps) => {
 
   const navigate = useNavigate();
   const handleHouseClick = () => {
-    navigate(`/house_request/${_id}`);
+    navigate(`house_requests/${_id}`);
   };
 
   return (

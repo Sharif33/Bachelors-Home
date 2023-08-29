@@ -13,7 +13,7 @@ const routesConfig = {
   HOUSES: "/houses",
   SINGLE_HOUSE: "houses/:_id",
   HOUSE_REQUESTS: "/house_requests",
-  SINGLE_HOUSE_REQUEST: "house_request/:_id",
+  SINGLE_HOUSE_REQUEST: "house_requests/:_id",
   CREATE_HOUSE_REQUEST: "/create_house_request",
   DASHBOARD: "/dashboard",
   PROFILE: "/profile",

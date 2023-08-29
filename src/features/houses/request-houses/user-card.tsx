@@ -10,10 +10,11 @@ import { useParams } from "react-router-dom";
 import AvatarShape from "../../../assets/illustrations/avatar-shape";
 import Image from "../../../components/image/image";
 import { REQUEST_HOUSES } from "../../faker/fake-house-request";
+import { USERS } from "../../faker/fake-user";
 export default function UserCard() {
   const theme = useTheme();
   let { _id } = useParams();
-  const user = REQUEST_HOUSES?.find((house) => house._id === _id);
+  const house_requester = REQUEST_HOUSES?.find((house) => house._id === _id);
   return (
     <Card
       sx={{
@@ -48,7 +49,7 @@ export default function UserCard() {
             position: "absolute",
             bgcolor: "primary.main",
           }}
-          src={user?.avatar}
+          src={house_requester?.avatar || USERS[0].avatar}
         />
 
         <Image
@@ -61,8 +62,8 @@ export default function UserCard() {
 
       <ListItemText
         sx={{ mt: 7, mb: 1 }}
-        primary={`${user?.firstName} ${user?.lastName}`}
-        secondary={user?.phone}
+        primary={`${house_requester?.firstName} ${house_requester?.lastName}`}
+        secondary={house_requester?.phone}
         primaryTypographyProps={{ typography: "subtitle1" }}
         secondaryTypographyProps={{ component: "span", mt: 0.5 }}
       />
@@ -82,7 +83,7 @@ export default function UserCard() {
           >
             Live
           </Typography>
-          @{user?.upazilla}, {user?.district}
+          @{house_requester?.upazilla}, {house_requester?.district}
         </div>
 
         <div>
@@ -93,7 +94,7 @@ export default function UserCard() {
           >
             From
           </Typography>
-          @{user?.upazilla}, {user?.district}
+          @{house_requester?.upazilla}, {house_requester?.district}
         </div>
       </Box>
     </Card>
