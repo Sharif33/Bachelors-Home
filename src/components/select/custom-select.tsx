@@ -15,13 +15,13 @@ const MenuProps = {
 
 export default function CustomSelect({
   data,
-  label,
+  value,
+  setValue,
 }: {
   data: string[];
-  label: string;
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
 }) {
-  const [value, setValue] = React.useState(label);
-
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value);
   };

@@ -24,6 +24,7 @@ const HousesComponent = (props: Props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   const { filteredHouses } = UseFilters();
+
   return (
     <Box sx={{ display: "flex" }}>
       <Drawer

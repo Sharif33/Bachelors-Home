@@ -58,6 +58,7 @@ export default function RangeSlider({
       <Slider
         value={value}
         onChange={handleChange}
+        step={100}
         min={initialValue[0]}
         max={initialValue[1]}
         getAriaValueText={valuetext}

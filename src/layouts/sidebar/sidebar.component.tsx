@@ -18,10 +18,13 @@ import { UseFilters } from "../../features/filters/use-filters";
 
 const SidebarComponent = () => {
   const {
-    handleCheckboxChange,
+    handleHouseTypeChange,
+    handleGenderChange,
     selectedItems,
     initialRangeValues,
     currentMonthName,
+    month,
+    setMonth,
     divId,
     setDivId,
     districts,
@@ -54,17 +57,17 @@ const SidebarComponent = () => {
       </Box>
       <Box sx={{ overflow: "auto", px: 3 }}>
         <List>
-          <ListItemText primary="Type" />
+          {/* <ListItemText primary="Type" /> */}
           <ListItem disablePadding>
             <CustomCheckbox
-              label="Bachelor (Boys)"
-              onCheckboxChange={handleCheckboxChange}
+              label="Boys"
+              onCheckboxChange={handleGenderChange}
             />
           </ListItem>
           <ListItem disablePadding>
             <CustomCheckbox
-              label="Bachelor (Girls)"
-              onCheckboxChange={handleCheckboxChange}
+              label="Girls"
+              onCheckboxChange={handleGenderChange}
             />
           </ListItem>
         </List>
@@ -81,31 +84,31 @@ const SidebarComponent = () => {
           <ListItem disablePadding>
             <CustomCheckbox
               label="Room"
-              onCheckboxChange={handleCheckboxChange}
+              onCheckboxChange={handleHouseTypeChange}
             />
           </ListItem>
           <ListItem disablePadding>
             <CustomCheckbox
               label="Shared Room"
-              onCheckboxChange={handleCheckboxChange}
+              onCheckboxChange={handleHouseTypeChange}
             />
           </ListItem>
           <ListItem disablePadding>
             <CustomCheckbox
               label="Flat"
-              onCheckboxChange={handleCheckboxChange}
+              onCheckboxChange={handleHouseTypeChange}
             />
           </ListItem>
           <ListItem disablePadding>
             <CustomCheckbox
               label="Sublet"
-              onCheckboxChange={handleCheckboxChange}
+              onCheckboxChange={handleHouseTypeChange}
             />
           </ListItem>
           <ListItem disablePadding>
             <CustomCheckbox
               label="Super Hostel"
-              onCheckboxChange={handleCheckboxChange}
+              onCheckboxChange={handleHouseTypeChange}
             />
           </ListItem>
         </List>
@@ -113,7 +116,7 @@ const SidebarComponent = () => {
         <List>
           <ListItemText primary="Available From" />
           <ListItem disablePadding>
-            <CustomSelect data={months} label={currentMonthName} />
+            <CustomSelect data={months} value={month} setValue={setMonth} />
           </ListItem>
         </List>
         <Divider />
