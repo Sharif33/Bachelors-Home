@@ -1,9 +1,14 @@
 import * as React from "react";
+import { useAvailableHousesQuery } from "../../redux/store/base-api";
 import { HOUSES, IHouses } from "../faker/fake-post";
 import { DISTRICTS, DIVISIONS } from "./filter-elements";
 import { UPAZILLAS } from "./upazillas";
 
 export const UseFilters = () => {
+  const { data } = useAvailableHousesQuery(`?location.district=Comilla`);
+
+  console.log(data);
+
   const initialRangeValues = [1000, 30000];
 
   const [selectedItems, setSelectedItems] = React.useState<string[]>([]);

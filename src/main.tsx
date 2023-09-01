@@ -5,6 +5,7 @@ import App from "./App";
 import loadingHome from "./assets/lottie/loading-home.json";
 import Lottiefiles from "./features/lottie-files/lottie-files";
 import "./index.css";
+import ReduxProvider from "./redux/store/redux-provider";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
@@ -24,7 +25,9 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
       }
     >
       <CssBaseline />
-      <App />
+      <ReduxProvider>
+        <App />
+      </ReduxProvider>
     </Suspense>
   </React.StrictMode>
 );
