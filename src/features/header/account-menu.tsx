@@ -118,7 +118,7 @@ export default function AccountMenu() {
         <Divider sx={{ borderStyle: "dashed" }} />
         <MenuItem
           onClick={() => {
-            navigate(routesConfig.MESS_DASHBOARD), handleClose;
+            navigate(routesConfig.DASHBOARD), handleClose;
           }}
         >
           <ListItemIcon>

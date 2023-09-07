@@ -15,7 +15,7 @@ import ContactOwner from "./contact-owner";
 const SingleHouse = () => {
   let { _id } = useParams();
 
-  const house = HOUSES?.find((house) => house._id === _id);
+  const house = HOUSES?.find((house) => house.house_id === _id);
   if (!house || !house.images) {
     return <div>No house found.</div>;
   }

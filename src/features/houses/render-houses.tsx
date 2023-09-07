@@ -27,13 +27,13 @@ const RenderHouses = ({ house }: Props) => {
     houseRent,
     availableFrom,
     images,
-    _id,
+    house_id,
     preferredGender,
   } = house;
 
   const navigate = useNavigate();
   const handleHouseClick = () => {
-    navigate(`/houses/${_id}`);
+    navigate(`/houses/${house_id}`);
   };
   return (
     <Card

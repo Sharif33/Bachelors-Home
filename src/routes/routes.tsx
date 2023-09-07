@@ -1,7 +1,7 @@
 import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import UserCard from "../features/houses/request-houses/user-card";
-import MessDashboardLayout from "../layouts/dashboard-layout/mess-dashboard-layout";
+import UserDashboardLayout from "../layouts/dashboard-layout/user-dashboard-layout";
 import HomeLayout from "../layouts/home-layout/home-layout";
 import PublicLayout from "../layouts/public-layout/public-layout";
 import FilterSidebar from "../layouts/sidebar/filter-sidebar.layout";
@@ -24,14 +24,11 @@ const ForgetPassword = lazy(() => import("../pages/auth/forgot-password"));
 const ResetPassword = lazy(() => import("../pages/auth/reset-password"));
 const VerifyEmail = lazy(() => import("../pages/auth/verify"));
 
-const MessDashboardPage = lazy(
-  () => import("../pages/dashboard/mess-dashboard/mess-dashboard-page")
+const UserDashboardPage = lazy(
+  () => import("../pages/dashboard/user-dashboard/user-dashboard")
 );
-const MessSummaryPage = lazy(
-  () => import("../pages/dashboard/mess-dashboard/mess-summary-page")
-);
-const MessAccountPage = lazy(
-  () => import("../pages/dashboard/mess-dashboard/mess-account-page")
+const SubmitHousePage = lazy(
+  () => import("../pages/dashboard/user-dashboard/create-house-post")
 );
 
 const router = createBrowserRouter([
@@ -114,20 +111,16 @@ const router = createBrowserRouter([
   //Mess
   {
     path: "/",
-    element: <MessDashboardLayout />,
+    element: <UserDashboardLayout />,
     children: [
       {
         index: true,
-        path: routesConfig.MESS_DASHBOARD,
-        element: <MessDashboardPage />,
+        path: routesConfig.DASHBOARD,
+        element: <UserDashboardPage />,
       },
       {
-        path: routesConfig.MESS_SUMMARY,
-        element: <MessSummaryPage />,
-      },
-      {
-        path: routesConfig.MESS_ACCOUNT,
-        element: <MessAccountPage />,
+        path: routesConfig.CREATE_HOUSE_POST,
+        element: <SubmitHousePage />,
       },
     ],
   },

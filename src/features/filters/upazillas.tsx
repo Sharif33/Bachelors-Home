@@ -248,7 +248,7 @@ export const UPAZILLAS = [
   {
     id: "35",
     district_id: "4",
-    name: "Kawkhali",
+    name: "Kawkhali(r)",
     bn_name: "কাউখালী",
     url: "kawkhali.rangamati.gov.bd",
   },
@@ -311,7 +311,7 @@ export const UPAZILLAS = [
   {
     id: "44",
     district_id: "5",
-    name: "Companiganj",
+    name: "Companiganj(n)",
     bn_name: "কোম্পানীগঞ্জ",
     url: "companiganj.noakhali.gov.bd",
   },
@@ -374,7 +374,7 @@ export const UPAZILLAS = [
   {
     id: "53",
     district_id: "6",
-    name: "Kachua",
+    name: "Kachua(c)",
     bn_name: "কচুয়া",
     url: "kachua.chandpur.gov.bd",
   },
@@ -528,7 +528,7 @@ export const UPAZILLAS = [
   {
     id: "75",
     district_id: "8",
-    name: "Lohagara",
+    name: "Lohagara(c)",
     bn_name: "লোহাগাড়া",
     url: "lohagara.chittagong.gov.bd",
   },
@@ -934,7 +934,7 @@ export const UPAZILLAS = [
   {
     id: "133",
     district_id: "14",
-    name: "Shibganj",
+    name: "Shibganj(b)",
     bn_name: "শিবগঞ্জ",
     url: "shibganj.bogra.gov.bd",
   },
@@ -948,7 +948,7 @@ export const UPAZILLAS = [
   {
     id: "135",
     district_id: "15",
-    name: "Durgapur",
+    name: "Durgapur(r)",
     bn_name: "দুর্গাপুর",
     url: "durgapur.rajshahi.gov.bd",
   },
@@ -1116,7 +1116,7 @@ export const UPAZILLAS = [
   {
     id: "159",
     district_id: "18",
-    name: "Shibganj",
+    name: "Shibganj(c)",
     bn_name: "শিবগঞ্জ",
     url: "shibganj.chapainawabganj.gov.bd",
   },
@@ -1298,7 +1298,7 @@ export const UPAZILLAS = [
   {
     id: "185",
     district_id: "21",
-    name: "Kaliganj",
+    name: "Kaliganj(s)",
     bn_name: "কালিগঞ্জ",
     url: "kaliganj.satkhira.gov.bd",
   },
@@ -1333,7 +1333,7 @@ export const UPAZILLAS = [
   {
     id: "190",
     district_id: "23",
-    name: "Lohagara",
+    name: "Lohagara(n)",
     bn_name: "লোহাগড়া",
     url: "lohagara.narail.gov.bd",
   },
@@ -1424,7 +1424,7 @@ export const UPAZILLAS = [
   {
     id: "203",
     district_id: "26",
-    name: "Sreepur",
+    name: "Sreepur(m)",
     bn_name: "শ্রীপুর",
     url: "sreepur.magura.gov.bd",
   },
@@ -1550,7 +1550,7 @@ export const UPAZILLAS = [
   {
     id: "221",
     district_id: "28",
-    name: "Kachua",
+    name: "Kachua(b)",
     bn_name: "কচুয়া",
     url: "kachua.bagerhat.gov.bd",
   },
@@ -1592,7 +1592,7 @@ export const UPAZILLAS = [
   {
     id: "227",
     district_id: "29",
-    name: "Kaliganj",
+    name: "Kaliganj(j)",
     bn_name: "কালীগঞ্জ",
     url: "kaliganj.jhenaidah.gov.bd",
   },
@@ -1711,7 +1711,7 @@ export const UPAZILLAS = [
   {
     id: "244",
     district_id: "32",
-    name: "Kawkhali",
+    name: "Kawkhali(p)",
     bn_name: "কাউখালী",
     url: "kawkhali.pirojpur.gov.bd",
   },
@@ -1928,7 +1928,7 @@ export const UPAZILLAS = [
   {
     id: "275",
     district_id: "36",
-    name: "Companiganj",
+    name: "Companiganj(s)",
     bn_name: "কোম্পানীগঞ্জ",
     url: "companiganj.sylhet.gov.bd",
   },
@@ -2222,7 +2222,7 @@ export const UPAZILLAS = [
   {
     id: "317",
     district_id: "41",
-    name: "Kaliganj",
+    name: "Kaliganj(g)",
     bn_name: "কালীগঞ্জ",
     url: "kaliganj.gazipur.gov.bd",
   },
@@ -2250,7 +2250,7 @@ export const UPAZILLAS = [
   {
     id: "321",
     district_id: "41",
-    name: "Sreepur",
+    name: "Sreepur(g)",
     bn_name: "শ্রীপুর",
     url: "sreepur.gazipur.gov.bd",
   },
@@ -2579,7 +2579,7 @@ export const UPAZILLAS = [
   {
     id: "368",
     district_id: "47",
-    name: "Nawabganj",
+    name: "Nawabganj(d)",
     bn_name: "নবাবগঞ্জ",
     url: "nawabganj.dhaka.gov.bd",
   },
@@ -2831,7 +2831,7 @@ export const UPAZILLAS = [
   {
     id: "404",
     district_id: "54",
-    name: "Nawabganj",
+    name: "Nawabganj(din)",
     bn_name: "নবাবগঞ্জ",
     url: "nawabganj.dinajpur.gov.bd",
   },
@@ -2929,7 +2929,7 @@ export const UPAZILLAS = [
   {
     id: "418",
     district_id: "55",
-    name: "Kaliganj",
+    name: "Kaliganj(l)",
     bn_name: "কালীগঞ্জ",
     url: "kaliganj.lalmonirhat.gov.bd",
   },
@@ -3384,7 +3384,7 @@ export const UPAZILLAS = [
   {
     id: "483",
     district_id: "64",
-    name: "Durgapur",
+    name: "Durgapur(n)",
     bn_name: "দুর্গাপুর",
     url: "durgapur.netrokona.gov.bd",
   },

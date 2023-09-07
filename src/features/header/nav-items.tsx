@@ -23,3 +23,9 @@ export const navItems: NavItem[] = [
     path: routesConfig.HOUSE_REQUESTS,
   },
 ];
+export const dashboardNavItems: NavItem[] = [
+  {
+    title: "FAQs",
+    path: routesConfig.FAQs,
+  },
+];

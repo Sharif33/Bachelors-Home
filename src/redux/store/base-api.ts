@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { toast } from "react-toastify";
 import { IHouses } from "../../features/faker/fake-post";
 
 // const baseUrl = process.env.REACT_APP_BASE_URL;
-const baseUrl = "https://bachelors-home-server.vercel.app/api/v1/";
+const baseUrl = "https://bachelors-home-server.vercel.app/api/";
 
 const baseQuery = fetchBaseQuery({
   baseUrl,
@@ -19,18 +20,36 @@ const baseQuery = fetchBaseQuery({
 });
 
 const baseAPI = createApi({
-  tagTypes: ["hostelMemberRequest", "product", "hostelAdd", "hostelBooking"],
+  // tagTypes: ["hostelMemberRequest", "product", "hostelAdd", "hostelBooking"],
   baseQuery,
   endpoints: (builder) => ({
     availableHouses: builder.query<IHouses, string>({
       query: (query) => ({
-        url: `houses${query}`,
+        url: `v1/houses${query}`,
         method: "GET",
       }),
+    }),
+
+    submitHouses: builder.mutation<IHouses, void>({
+      query: (credentials) => ({
+        url: "v1/houses",
+        method: "POST",
+        body: credentials,
+      }),
+
+      onQueryStarted: async (credentials, { dispatch, queryFulfilled }) => {
+        try {
+          await queryFulfilled;
+          toast.success("House Successfully Submitted");
+        } catch (error: any) {
+          const message = error?.error?.data || "Something Went Wrong";
+          toast.error(message);
+        }
+      },
     }),
   }),
 });
 
-export const { useAvailableHousesQuery } = baseAPI;
+export const { useAvailableHousesQuery, useSubmitHousesMutation } = baseAPI;
 
 export default baseAPI;

@@ -15,7 +15,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { varFade, varHover } from "../../components/animate/variants copy";
 import AccountMenu from "../header/account-menu";
-import { navItems } from "../header/nav-items";
+import { dashboardNavItems } from "../header/nav-items";
 import { textGradient } from "../theme/css";
 
 const StyledTextGradient = styled(m.h1)(({ theme }) => ({
@@ -169,7 +169,7 @@ const MessNavbar = ({ mobileOpen, handleDrawerToggle }: Props) => {
                   alignItems: "center",
                 }}
               >
-                {navItems.map((item) => (
+                {dashboardNavItems.map((item) => (
                   <Button
                     key={item.title}
                     onClick={() => navigate(item.path)}

@@ -3,21 +3,21 @@ import { DISTRICTS, DIVISIONS } from "../filters/filter-elements";
 import { UPAZILLAS } from "../filters/upazillas";
 
 export interface IHouses {
-  _id: string;
+  house_id: string;
   images: string[];
   houseType: string;
   availableFrom: string;
-  houseSize: number | string;
-  houseRent: number | string;
+  houseSize: number;
+  houseRent: number;
   rentNegotiable: boolean;
-  serviceCharge: number | string;
-  bedRoom: number | string;
-  bathRoom: number | string;
-  kitchen: number | string;
-  balcony: number | string;
-  floor: number | string;
+  serviceCharge: number;
+  bedRoom: number;
+  bathRoom: number;
+  kitchen: number;
+  balcony: number;
+  floor: number;
   floorType: string;
-  diningSpace: number | string;
+  diningSpace: number;
   attachedWashroom: boolean;
   lift: boolean;
   parking: boolean;
@@ -25,7 +25,7 @@ export interface IHouses {
   security: boolean;
   cctv: boolean;
   wifi: boolean;
-  gasBill: number | string;
+  gasBill: number;
   gasFacility: string;
   water: boolean;
   electricity: string;
@@ -95,7 +95,7 @@ function createRandomHouses(): IHouses {
   }
 
   return {
-    _id: faker.string.uuid(),
+    house_id: faker.string.uuid(),
     images: randomImageUrls,
     houseType: getRandomElement([
       "Room",

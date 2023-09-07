@@ -16,6 +16,7 @@ const routesConfig = {
   SINGLE_HOUSE_REQUEST: "house_requests/:_id",
   CREATE_HOUSE_REQUEST: "/create_house_request",
   DASHBOARD: "/dashboard",
+  CREATE_HOUSE_POST: "/dashboard/create_house_post",
   PROFILE: "/profile",
   //mess route
   MESS_DASHBOARD: "dashboard/mess",
