@@ -30,6 +30,9 @@ const UserDashboardPage = lazy(
 const SubmitHousePage = lazy(
   () => import("../pages/dashboard/user-dashboard/create-house-post")
 );
+const CreateHouseRequestPage = lazy(
+  () => import("../pages/dashboard/user-dashboard/create-house-req-page")
+);
 
 const router = createBrowserRouter([
   {
@@ -121,6 +124,10 @@ const router = createBrowserRouter([
       {
         path: routesConfig.CREATE_HOUSE_POST,
         element: <SubmitHousePage />,
+      },
+      {
+        path: routesConfig.CREATE_HOUSE_REQUEST,
+        element: <CreateHouseRequestPage />,
       },
     ],
   },

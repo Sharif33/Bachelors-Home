@@ -11,39 +11,51 @@ import Typography from "@mui/material/Typography";
 const _faqs = [
   {
     id: 1,
-    heading: "What is the best way to get started?",
+    heading: "What is Bachelors Home?",
     detail:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "Bachelors-Home is a platform for Bangladeshi bachelors to find their ideal home away from home. And for mess owners to find their ideal tenants.",
   },
   {
     id: 2,
-    heading: "How does the free trial work?",
+    heading: "What kind of ads can be given at Bachelors Home?",
     detail:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "Any kind of house rent advertisement such as flat, sublet, room, shared room, Mess, Hostel, Super hostel etc.",
   },
   {
     id: 3,
-    heading: "Can I cancel my subscription?",
+    heading: "How to advertise rentals at Bachelors Home?",
     detail:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "Visit Bachelors Home and click Submit Houses and open the free account and fill out the form with detailed information about your house and click submit. Then find appropriate tenants.",
   },
   {
     id: 4,
-    heading: "Is there any discount for an annual subscription?",
+    heading: "How to request for a house at Bachelors Home?",
     detail:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "Visit Bachelors Home and click Create House Request and open the free account and fill out the form with detailed information about your house and click submit. Then find your desired house.",
   },
   {
     id: 5,
-    heading: "Which payment methods do you take?",
+    heading: "How to booking a house at Bachelors Home?",
     detail:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "Visit Bachelors Home and click Available Houses and click a house post and it redirected you the house details page. Fill out the form with detailed information and click Send Message or just call the owner.",
   },
   {
     id: 6,
-    heading: "Any other questions we can answer?",
+    heading: "How to find the desire house in my area?",
     detail:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.",
+      "To find the desire house in your area easily, visit Bachelors Home and click on the search button and easily find your favourite residence place.",
+  },
+  {
+    id: 7,
+    heading: "How many photos can be uploaded to a submit house?",
+    detail:
+      "Many images can be uploaded to an advertisement. However, while uploading the images, it should be kept in mind that the pictures are clear and accurate.",
+  },
+  {
+    id: 8,
+    heading: "Why use Bachelors Home?",
+    detail:
+      "We are here to help you find the perfect place for the bachelor to live all over Bangladesh and give you the best experience.",
   },
 ];
 

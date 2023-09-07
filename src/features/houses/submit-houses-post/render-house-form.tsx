@@ -247,7 +247,7 @@ const RenderHouseForm = ({
               label="upazilla"
             />
           </Grid>
-          <Grid item xs={6} md={6}>
+          <Grid item xs={12} md={6}>
             <RHFTextField
               name="location.address"
               label="Full Address"
@@ -255,7 +255,7 @@ const RenderHouseForm = ({
               rows={2}
             />
           </Grid>
-          <Grid item xs={6} md={6}>
+          <Grid item xs={12} md={6}>
             <RHFTextField
               name="location.googleMapLink"
               label="Google Map Link"

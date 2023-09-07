@@ -126,7 +126,7 @@ const FeatureHouses = () => {
           {houses.slice(activeIndex, nextIndex).map((item) => (
             <ImageListItem
               component={m.div}
-              key={item._id}
+              key={item.house_id}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -152,7 +152,7 @@ const FeatureHouses = () => {
                   <IconButton
                     sx={{ color: "rgba(255, 255, 255, 0.54)" }}
                     aria-label={`info about ${item.houseType}`}
-                    onClick={() => navigate(`/houses/${item._id}`)}
+                    onClick={() => navigate(`/houses/${item.house_id}`)}
                   >
                     <InfoIcon />
                   </IconButton>

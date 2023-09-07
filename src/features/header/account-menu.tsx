@@ -1,6 +1,7 @@
+import AddHomeOutlinedIcon from "@mui/icons-material/AddHomeOutlined";
+import AddHomeWorkOutlinedIcon from "@mui/icons-material/AddHomeWorkOutlined";
 import DashboardOutlinedIcon from "@mui/icons-material/DashboardOutlined";
 import Logout from "@mui/icons-material/Logout";
-import Settings from "@mui/icons-material/Settings";
 import { Typography } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -128,13 +129,23 @@ export default function AccountMenu() {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            navigate(routesConfig.MESS_DASHBOARD), handleClose;
+            navigate(routesConfig.CREATE_HOUSE_POST), handleClose;
           }}
         >
           <ListItemIcon>
-            <Settings fontSize="small" />
+            <AddHomeWorkOutlinedIcon fontSize="small" />
           </ListItemIcon>
-          Settings
+          Submit House
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            navigate(routesConfig.CREATE_HOUSE_REQUEST), handleClose;
+          }}
+        >
+          <ListItemIcon>
+            <AddHomeOutlinedIcon fontSize="small" />
+          </ListItemIcon>
+          Create House Request
         </MenuItem>
         <MenuItem onClick={handleClose} sx={{ color: "error.main" }}>
           <ListItemIcon>

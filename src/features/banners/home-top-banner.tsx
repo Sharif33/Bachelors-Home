@@ -93,7 +93,7 @@ const HomeTopBanner = () => {
               }}
             >
               We are here to help you find the perfect place for the bachelor to
-              live all over Bangladesh and give you the best mess experience.
+              live all over Bangladesh and give you the best experience.
             </Typography>{" "}
             <br />
             <Button
