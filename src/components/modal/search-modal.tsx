@@ -75,7 +75,7 @@ export default function SearchModal({
               <Box sx={{ mt: 2, textAlign: "center" }}>No results found</Box>
             ) : (
               data.map((house) => (
-                <RenderHouses key={house._id} house={house} />
+                <RenderHouses key={house.house_id} house={house} />
               ))
             )}
           </Box>

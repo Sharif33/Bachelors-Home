@@ -25,7 +25,7 @@ export default function HousesPagination({ data }: { data: IHouses[] }) {
       ) : (
         <>
           {paginatedData.map((house) => (
-            <RenderHouses key={house?._id} house={house} />
+            <RenderHouses key={house?.house_id} house={house} />
           ))}
           <Box
             sx={{
