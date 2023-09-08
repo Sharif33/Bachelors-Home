@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 // @mui
@@ -14,7 +14,9 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "@mui/material/Link";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
 import FormProvider from "../../components/hook-form/form-provider";
 import RHFTextField from "../../components/hook-form/rhf-text-field";
 import { useBoolean } from "../../hooks/use-boolean";
@@ -24,16 +26,16 @@ import routesConfig from "../../routes/routes.config";
 type FormValuesProps = {
   email: string;
   password: string;
-  firstName: string;
-  lastName: string;
+  name: string;
+  phoneNo: string;
 };
 
 export default function RegisterView() {
   const password = useBoolean();
 
   const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string().required("First name required"),
-    lastName: Yup.string().required("Last name required"),
+    name: Yup.string().required("name is required"),
+    phoneNo: Yup.string().required("Phone no is required"),
     email: Yup.string()
       .required("Email is required")
       .email("Email must be a valid email address"),
@@ -41,8 +43,8 @@ export default function RegisterView() {
   });
 
   const defaultValues = {
-    firstName: "",
-    lastName: "",
+    name: "",
+    phoneNo: "",
     email: "",
     password: "",
   };
@@ -52,15 +54,23 @@ export default function RegisterView() {
     defaultValues,
   });
 
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
 
-  const onSubmit = useCallback(async (data: FormValuesProps) => {
+  const onSubmit = useCallback(async (data: FormValuesProps | any) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      console.info("DATA", data);
+      createUser(data.email, data.password).then((result: any) => {
+        const loggedUser = result.user;
+        if (loggedUser) {
+          toast.success("Registration successful");
+          navigate(routesConfig.LOGIN);
+        }
+      });
     } catch (error) {
       console.error(error);
     }
@@ -114,12 +124,9 @@ export default function RegisterView() {
 
   const renderForm = (
     <Stack spacing={2.5}>
-      <Stack direction={{ xs: "column", sm: "row" }} spacing={2}>
-        <RHFTextField name="firstName" label="First name" />
-        <RHFTextField name="lastName" label="Last name" />
-      </Stack>
-
-      <RHFTextField name="email" label="Email address" />
+      <RHFTextField name="name" label="Full name" type="text" />
+      <RHFTextField name="phoneNo" label="Phone No" type="text" />
+      <RHFTextField name="email" label="Email address" type="email" />
 
       <RHFTextField
         name="password"

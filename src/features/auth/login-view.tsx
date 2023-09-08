@@ -1,5 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 // @mui
@@ -13,7 +13,9 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
 import FormProvider from "../../components/hook-form/form-provider";
 import RHFTextField from "../../components/hook-form/rhf-text-field";
 import { useBoolean } from "../../hooks/use-boolean";
@@ -46,6 +48,12 @@ export default function LoginView() {
     defaultValues,
   });
 
+  const { logIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || routesConfig.HOME;
+
   const {
     handleSubmit,
     formState: { isSubmitting },
@@ -54,7 +62,13 @@ export default function LoginView() {
   const onSubmit = useCallback(async (data: FormValuesProps) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      console.info("DATA", data);
+      logIn(data.email, data.password).then((result: any) => {
+        const loggedUser = result.user;
+        if (loggedUser) {
+          toast.success("LogIn successful");
+          navigate(from, { replace: true });
+        }
+      });
     } catch (error) {
       console.error(error);
     }

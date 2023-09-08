@@ -3,10 +3,12 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { AppBar, Box, Button, Toolbar, styled } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import { m } from "framer-motion";
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 import logo from "../../assets/logo.png";
 import { varFade, varHover } from "../../components/animate/variants copy";
+import routesConfig from "../../routes/routes.config";
 import HouseSearch from "../search/house-search";
 import { textGradient } from "../theme/css";
 import AccountMenu from "./account-menu";
@@ -44,6 +46,8 @@ const FilterNavbar = (props: Props) => {
   };
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  const { user } = useContext(AuthContext);
 
   return (
     <>
@@ -152,7 +156,26 @@ const FilterNavbar = (props: Props) => {
                   </Button>
                 ))}
               </Box>
-              <AccountMenu />
+              {user?.email ? (
+                <AccountMenu />
+              ) : (
+                <Button
+                  onClick={() => navigate(routesConfig.LOGIN)}
+                  sx={{
+                    color: "black",
+                    px: 2,
+                    fontWeight: "bolder",
+                    fontSize: "1rem",
+                    textTransform: "none",
+                    "&:hover": {
+                      color: "#00A76F",
+                      fontWeight: "bolder",
+                    },
+                  }}
+                >
+                  LogIn
+                </Button>
+              )}
             </Box>
           </Toolbar>
         </Box>

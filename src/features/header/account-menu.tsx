@@ -13,6 +13,8 @@ import MenuItem from "@mui/material/MenuItem";
 import { m } from "framer-motion";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Provider/AuthProvider";
 import { varHover } from "../../components/animate/variants copy";
 import routesConfig from "../../routes/routes.config";
 
@@ -27,7 +29,15 @@ export default function AccountMenu() {
   };
 
   const navigate = useNavigate();
+  const { logOut } = React.useContext(AuthContext);
 
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.error("You are logged out");
+      })
+      .catch((error: any) => console.log(error));
+  };
   return (
     <React.Fragment>
       <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
@@ -147,7 +157,7 @@ export default function AccountMenu() {
           </ListItemIcon>
           Create House Request
         </MenuItem>
-        <MenuItem onClick={handleClose} sx={{ color: "error.main" }}>
+        <MenuItem onClick={handleLogOut} sx={{ color: "error.main" }}>
           <ListItemIcon>
             <Logout fontSize="small" color="error" />
           </ListItemIcon>

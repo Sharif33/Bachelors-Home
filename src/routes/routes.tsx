@@ -6,6 +6,7 @@ import HomeLayout from "../layouts/home-layout/home-layout";
 import PublicLayout from "../layouts/public-layout/public-layout";
 import FilterSidebar from "../layouts/sidebar/filter-sidebar.layout";
 import ErrorPage from "../pages/error-page";
+import PrivateRoute from "./private-route";
 import routesConfig from "./routes.config";
 
 const Home = lazy(() => import("../pages/home/home-page"));
@@ -46,7 +47,11 @@ const router = createBrowserRouter([
       },
       {
         path: routesConfig.SINGLE_HOUSE,
-        element: <SingleHouse />,
+        element: (
+          <PrivateRoute>
+            <SingleHouse />
+          </PrivateRoute>
+        ),
       },
 
       {
@@ -65,7 +70,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/house_requests",
-    element: <CreateHouseRequest />,
+    element: (
+      <PrivateRoute>
+        <CreateHouseRequest />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: routesConfig.SINGLE_HOUSE_REQUEST,
@@ -119,15 +128,29 @@ const router = createBrowserRouter([
       {
         index: true,
         path: routesConfig.DASHBOARD,
-        element: <UserDashboardPage />,
+        element: (
+          <PrivateRoute>
+            <UserDashboardPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: routesConfig.CREATE_HOUSE_POST,
-        element: <SubmitHousePage />,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <SubmitHousePage />
+          </PrivateRoute>
+        ),
       },
       {
         path: routesConfig.CREATE_HOUSE_REQUEST,
-        element: <CreateHouseRequestPage />,
+        element: (
+          <PrivateRoute>
+            {" "}
+            <CreateHouseRequestPage />
+          </PrivateRoute>
+        ),
       },
     ],
   },
