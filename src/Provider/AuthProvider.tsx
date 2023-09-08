@@ -4,18 +4,16 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import React, { createContext, useEffect } from "react";
 import { app } from "../features/Firebase/firebase.config";
 
-export const AuthContext = createContext<any | null>(null); // Update the createContext type to match your authInfo object.
-
+export const AuthContext = createContext<any | null>(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  // Specify React.ReactNode for children prop.
-
-  const [user, setUser] = React.useState<any | null>(null); // Update the type for user state.
+  const [user, setUser] = React.useState<any | null>(null);
   const [loading, setLoading] = React.useState<boolean>(true);
 
   const createUser = (email: string, password: string) => {
@@ -33,14 +31,22 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     return signOut(auth);
   };
 
+  const updateUserProfile = (name: string) => {
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      return updateProfile(currentUser, {
+        displayName: name,
+      });
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      console.log(currentUser);
       setLoading(false);
     });
     return () => {
-      unsubscribe(); // Remove the unnecessary return statement.
+      unsubscribe();
     };
   }, []);
 
@@ -48,6 +54,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     user,
     loading,
     createUser,
+    updateUserProfile,
     logIn,
     logOut,
   };

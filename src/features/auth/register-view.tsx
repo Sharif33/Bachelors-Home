@@ -54,9 +54,10 @@ export default function RegisterView() {
     defaultValues,
   });
 
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
+    reset,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
@@ -67,8 +68,11 @@ export default function RegisterView() {
       createUser(data.email, data.password).then((result: any) => {
         const loggedUser = result.user;
         if (loggedUser) {
-          toast.success("Registration successful");
-          navigate(routesConfig.LOGIN);
+          updateUserProfile(data.name).then(() => {
+            toast.success("Registration successful");
+            reset();
+            navigate(routesConfig.LOGIN);
+          });
         }
       });
     } catch (error) {
