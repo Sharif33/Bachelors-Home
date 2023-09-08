@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { toast } from "react-toastify";
 import { IHouses } from "../../features/faker/fake-post";
+import { IReqHouses } from "./api.type";
 
 // const baseUrl = process.env.REACT_APP_BASE_URL;
 const baseUrl = "https://bachelors-home-server.vercel.app/api/";
@@ -30,6 +31,13 @@ const baseAPI = createApi({
       }),
     }),
 
+    requestedHouses: builder.query<IReqHouses, string>({
+      query: () => ({
+        url: `v1/req_houses`,
+        method: "GET",
+      }),
+    }),
+
     submitHouses: builder.mutation<IHouses, void>({
       query: (credentials) => ({
         url: "v1/houses",
@@ -47,9 +55,32 @@ const baseAPI = createApi({
         }
       },
     }),
+
+    createHouseRequests: builder.mutation<IReqHouses, void>({
+      query: (credentials) => ({
+        url: "v1/req_houses",
+        method: "POST",
+        body: credentials,
+      }),
+
+      onQueryStarted: async (credentials, { dispatch, queryFulfilled }) => {
+        try {
+          await queryFulfilled;
+          toast.success("House Request Successfully Submitted");
+        } catch (error: any) {
+          const message = error?.error?.data || "Something Went Wrong";
+          toast.error(message);
+        }
+      },
+    }),
   }),
 });
 
-export const { useAvailableHousesQuery, useSubmitHousesMutation } = baseAPI;
+export const {
+  useAvailableHousesQuery,
+  useSubmitHousesMutation,
+  useCreateHouseRequestsMutation,
+  useRequestedHousesQuery,
+} = baseAPI;
 
 export default baseAPI;

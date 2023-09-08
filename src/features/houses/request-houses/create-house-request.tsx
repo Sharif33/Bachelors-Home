@@ -5,6 +5,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import FormProvider from "../../../components/hook-form/form-provider";
+import { useCreateHouseRequestsMutation } from "../../../redux/store/base-api";
+import routesConfig from "../../../routes/routes.config";
 import RenderRequestHouseForm from "./render-request-houses-form";
 // @mui
 
@@ -58,18 +60,23 @@ const CreateHouseRequestView = () => {
     formState: { isSubmitting },
   } = methods;
 
+  const [createHouseRequests, { isSuccess }] = useCreateHouseRequestsMutation();
   const navigate = useNavigate();
   const [acceptTerm, setAcceptTerm] = React.useState(false);
 
+  React.useEffect(() => {
+    if (isSuccess) {
+      navigate(routesConfig.HOUSE_REQUESTS);
+    }
+  }, [isSuccess]);
   const handleTerm = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAcceptTerm(event.target.checked);
   };
 
   const onSubmit = async (data: FormData | any) => {
-    console.log(data);
     try {
       if (acceptTerm) {
-        console.log(data);
+        await createHouseRequests(data);
       }
     } catch (error) {
       console.error(error);

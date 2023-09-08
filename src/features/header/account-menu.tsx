@@ -29,7 +29,7 @@ export default function AccountMenu() {
   };
 
   const navigate = useNavigate();
-  const { logOut } = React.useContext(AuthContext);
+  const { user, logOut } = React.useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -119,11 +119,11 @@ export default function AccountMenu() {
       >
         <Box sx={{ p: 2, pb: 2 }}>
           <Typography variant="subtitle2" noWrap>
-            Sharif Rashed
+            {user?.displayName}
           </Typography>
 
           <Typography variant="body2" sx={{ color: "text.secondary" }} noWrap>
-            sharif.cse.nu@gmail.com
+            {user?.email}
           </Typography>
         </Box>
         <Divider sx={{ borderStyle: "dashed" }} />
