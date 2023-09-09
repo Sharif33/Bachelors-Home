@@ -7,13 +7,15 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import routesConfig from "../../../routes/routes.config";
 import { REQUEST_HOUSES } from "../../faker/fake-house-request";
 import Footer from "../../footer/footer";
 import FilterNavbar from "../../header/filter-navbar";
 import { RenderRequestHouses } from "./render-request-houses";
 
 const RequestHouses = () => {
+  const navigate = useNavigate();
   return (
     <Box
       sx={{
@@ -69,6 +71,7 @@ const RequestHouses = () => {
                 <Button
                   size="large"
                   variant="contained"
+                  onClick={() => navigate(routesConfig.CREATE_HOUSE_REQUEST)}
                   sx={{ width: 1, mt: 2 }}
                 >
                   Create a request

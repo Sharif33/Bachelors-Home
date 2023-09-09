@@ -149,6 +149,17 @@ export const RenderRequestHouses = ({ house }: RenderRequestHousesProps) => {
             description
           )}
         </Box>
+        <Button
+          variant="text"
+          onClick={handleSeeMore}
+          sx={{
+            textTransform: "none",
+            p: 0,
+            mt: 1.5,
+          }}
+        >
+          View all comments
+        </Button>
       </CardContent>
 
       <CardActions>
